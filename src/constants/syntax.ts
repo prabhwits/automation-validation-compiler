@@ -1,0 +1,70 @@
+export enum ConfigSyntax {
+	Name = "_NAME_",
+	Return = "_RETURN_",
+	Scope = "_SCOPE_",
+	Continue = "_CONTINUE_",
+	ErrorCode = "_ERROR_CODE_",
+}
+
+export const ConfigKeyWords = [
+	ConfigSyntax.Name,
+	ConfigSyntax.Return,
+	ConfigSyntax.Scope,
+	ConfigSyntax.Continue,
+	ConfigSyntax.ErrorCode,
+];
+
+// JavaScript/Node.js keywords
+export const nodeReservedKeywords = new Set([
+	"break",
+	"case",
+	"catch",
+	"class",
+	"const",
+	"continue",
+	"debugger",
+	"default",
+	"delete",
+	"do",
+	"else",
+	"export",
+	"extends",
+	"finally",
+	"for",
+	"function",
+	"if",
+	"import",
+	"in",
+	"instanceof",
+	"let",
+	"new",
+	"return",
+	"super",
+	"switch",
+	"this",
+	"throw",
+	"try",
+	"typeof",
+	"var",
+	"void",
+	"while",
+	"with",
+	"yield",
+
+	// Additional Node.js/ECMAScript-specific keywords
+	"async",
+	"await",
+	"arguments",
+	"eval",
+	"of",
+
+	// Reserved but may not yet be used in JavaScript
+	"enum",
+	"implements",
+	"interface",
+	"package",
+	"private",
+	"protected",
+	"public",
+	"static",
+]);

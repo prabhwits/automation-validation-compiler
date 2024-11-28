@@ -1,0 +1,23 @@
+{
+	"name": "ondc-code-generator",
+	"version": "0.0.1",
+	"description": "generate code from build.yaml ",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/index.js",
+		"dev": "ts-node src/index.ts"
+	},
+	"author": "extedcoud",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/json-schema": "^7.0.15",
+		"@types/node": "^22.10.1",
+		"typescript": "^5.7.2"
+	},
+	"dependencies": {
+		"json-schema": "^0.4.0",
+		"json-to-yaml-ref": "^1.0.0",
+		"winston": "^3.17.0"
+	}
+}
