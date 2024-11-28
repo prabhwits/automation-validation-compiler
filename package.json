@@ -11,11 +11,14 @@
 	"author": "extedcoud",
 	"license": "MIT",
 	"devDependencies": {
+		"@types/js-yaml": "^4.0.9",
 		"@types/json-schema": "^7.0.15",
 		"@types/node": "^22.10.1",
 		"typescript": "^5.7.2"
 	},
 	"dependencies": {
+		"@apidevtools/json-schema-ref-parser": "^11.7.2",
+		"js-yaml": "^4.1.0",
 		"json-schema": "^0.4.0",
 		"json-to-yaml-ref": "^1.0.0",
 		"winston": "^3.17.0"
