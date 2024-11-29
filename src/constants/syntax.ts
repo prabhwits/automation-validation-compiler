@@ -1,4 +1,4 @@
-export enum ConfigSyntax {
+export enum TestObjectSyntax {
 	Name = "_NAME_",
 	Return = "_RETURN_",
 	Scope = "_SCOPE_",
@@ -6,12 +6,19 @@ export enum ConfigSyntax {
 	ErrorCode = "_ERROR_CODE_",
 }
 
+export enum ConfigSyntax {
+	Tests = "_TESTS_",
+	SessionData = "_SESSION_DATA_",
+}
+
 export const ConfigKeyWords = [
-	ConfigSyntax.Name,
-	ConfigSyntax.Return,
-	ConfigSyntax.Scope,
-	ConfigSyntax.Continue,
-	ConfigSyntax.ErrorCode,
+	TestObjectSyntax.Name,
+	TestObjectSyntax.Return,
+	TestObjectSyntax.Scope,
+	TestObjectSyntax.Continue,
+	TestObjectSyntax.ErrorCode,
+	ConfigSyntax.Tests,
+	ConfigSyntax.SessionData,
 ];
 
 // JavaScript/Node.js keywords
