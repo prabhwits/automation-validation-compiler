@@ -13,7 +13,7 @@ const defaultConfig: CodeGeneratorConfig = {
 	removeEnumsfromSchema: true,
 };
 
-class CodeGenerator {
+class ConfigCompiler {
 	buildData: BUID_TYPE | undefined;
 	jsonSchemas: Record<string, JSONSchema7> | undefined;
 	possibleJsonPahts: Record<string, string[]> | undefined;
@@ -22,12 +22,16 @@ class CodeGenerator {
 		this.SchemaExtactionService = new SchemaExtactionService();
 	}
 	// 1. extract build, create schemas , extract possible paths , extract errorcodes
-	initialize = async (buildYaml: string, generatorConfig = defaultConfig) => {
+	initialize = async (
+		buildYaml: string,
+		generatorConfig: Partial<CodeGeneratorConfig> = {}
+	) => {
+		const finalConfig = { ...defaultConfig, ...generatorConfig };
 		this.buildData = await loadAndDereferenceYaml<BUID_TYPE>(buildYaml);
 		this.jsonSchemas = await this.SchemaExtactionService.extractSchemas(
 			this.buildData,
-			generatorConfig.removeRequiredfromSchema,
-			generatorConfig.removeEnumsfromSchema
+			finalConfig.removeRequiredfromSchema,
+			finalConfig.removeEnumsfromSchema
 		);
 		this.possibleJsonPahts = this.SchemaExtactionService.extractPossiblePaths(
 			this.jsonSchemas
