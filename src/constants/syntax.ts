@@ -6,6 +6,8 @@ export enum TestObjectSyntax {
 	ErrorCode = "_ERROR_CODE_",
 }
 
+export const ExternalDataSyntax = "_EXTERNAL";
+
 export enum ConfigSyntax {
 	Tests = "_TESTS_",
 	SessionData = "_SESSION_DATA_",

@@ -1,12 +1,17 @@
 {
 	"compilerOptions": {
-		"target": "es6", // Target ECMAScript version
-		"module": "commonjs", // Module system
-		"strict": true, // Enable strict type-checking
-		"esModuleInterop": true, // Enable interop between CommonJS and ES Modules
-		"outDir": "./dist", // Output directory for compiled files
-		"rootDir": "./src" // Root directory for TypeScript files
+		"target": "ES2020",
+		"module": "ES2020",
+		"moduleResolution": "node",
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true
 	},
-	"include": ["src"], // Files or directories to compile
-	"exclude": ["node_modules"] // Files or directories to ignore
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"]
 }

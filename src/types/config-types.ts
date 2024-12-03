@@ -1,4 +1,4 @@
-import { ConfigSyntax, TestObjectSyntax } from "../constants/syntax";
+import { ConfigSyntax, TestObjectSyntax } from "../constants/syntax.js";
 
 export type TestObject = {
 	[TestObjectSyntax.Name]: string;

@@ -15,7 +15,7 @@ export function isValidJsonPath(jsonPath: string) {
  * @param jsonPath - The JSONPath string to transform.
  * @returns The transformed JSONPath string with contents inside brackets replaced by '*'.
  */
-function replaceBracketsWithAsteriskNested(jsonPath: string): string {
+export function replaceBracketsWithAsteriskNested(jsonPath: string): string {
 	let result = "";
 	let i = 0;
 	while (i < jsonPath.length) {
