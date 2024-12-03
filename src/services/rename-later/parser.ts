@@ -1,30 +1,40 @@
-import { CstNode, CstParser } from "chevrotain";
-import { allTokens, NumberLiteral, PlusMinusOperator } from "./tokens.js";
+import { CstParser, IRecognitionException } from "chevrotain";
+import {
+	allTokens,
+	Identifier,
+	CustomBinaryFunctions,
+	CustomUniaryFunctions,
+} from "./tokens.js";
 
-export default class CalculatorParser extends CstParser {
-	public expression!: () => CstNode;
-	public additionExpression!: () => CstNode;
-	public atomicExpression!: () => CstNode;
+class CustomReturnParser extends CstParser {
+	public returnStatement!: () => any;
+
 	constructor() {
 		super(allTokens);
+
 		const $ = this;
 
-		$.RULE("expression", () => {
-			$.SUBRULE($.additionExpression);
+		$.RULE("returnStatement", () => {
+			$.OR([
+				{
+					ALT: () => {
+						$.CONSUME1(Identifier, { LABEL: "lhs" });
+						$.CONSUME(CustomBinaryFunctions);
+						$.CONSUME2(Identifier, { LABEL: "rhs" });
+					},
+				},
+				{
+					ALT: () => {
+						$.CONSUME3(Identifier, { LABEL: "lhs" });
+						$.CONSUME(CustomUniaryFunctions);
+					},
+				},
+			]);
 		});
 
-		$.RULE("additionExpression", () => {
-			$.SUBRULE($.atomicExpression, { LABEL: "lhs" });
-			$.MANY(() => {
-				$.CONSUME(PlusMinusOperator);
-				$.SUBRULE2($.atomicExpression, { LABEL: "rhs" });
-			});
-		});
-
-		$.RULE("atomicExpression", () => {
-			$.CONSUME(NumberLiteral);
-		});
-
-		$.performSelfAnalysis();
+		// Perform self-analysis
+		this.performSelfAnalysis();
 	}
 }
+
+export const ReturnParser = CustomReturnParser;

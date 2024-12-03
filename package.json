@@ -17,6 +17,7 @@
 		"@types/jsonpath": "^0.2.4",
 		"@types/node": "^22.10.1",
 		"esm-loader-typescript": "^1.0.6",
+		"nodemon": "^3.1.7",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.7.2"
 	},

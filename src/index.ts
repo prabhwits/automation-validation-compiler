@@ -1,15 +1,17 @@
-import { Lexer } from "chevrotain";
-import { allTokens } from "./services/rename-later/tokens.js";
-import CalculatorParser from "./services/rename-later/parser.js";
+import { ReturnLexer } from "./services/rename-later/tokens.js";
+import { ReturnParser } from "./services/rename-later/parser.js";
 
-const input = "1 / 2 - 3";
-
-const lexer = new Lexer(allTokens);
-const { tokens } = lexer.tokenize(input);
-
-const parser = new CalculatorParser();
+const inputs = [
+	"a are unique s",
+	"A all in B",
+	"A are unique",
+	"X follow regex reg",
+	"X none in Y",
+];
+const { tokens } = ReturnLexer.tokenize(inputs[0]);
+const parser = new ReturnParser();
 parser.input = tokens;
 
-const cst = parser.expression();
+const cst = parser.returnStatement();
 
 console.log(cst);
