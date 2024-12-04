@@ -1,4 +1,4 @@
-import { CstParser, IRecognitionException } from "chevrotain";
+import { CstNode, CstParser, IRecognitionException } from "chevrotain";
 import {
 	allTokens,
 	Identifier,
@@ -7,7 +7,7 @@ import {
 } from "./tokens.js";
 
 class CustomReturnParser extends CstParser {
-	public returnStatement!: () => any;
+	public returnStatement!: () => CstNode;
 
 	constructor() {
 		super(allTokens);
