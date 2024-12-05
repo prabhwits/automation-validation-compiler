@@ -1,4 +1,5 @@
 import { ConfigSyntax, TestObjectSyntax } from "../constants/syntax.js";
+import { Primitive } from "./general-types.js";
 
 export type TestObject = {
 	[TestObjectSyntax.Name]: string;
@@ -11,9 +12,13 @@ export type TestObject = {
 
 export type TestArray = TestObject[];
 
+export type SessionDataValue = string | Primitive[] | null;
+
+export type SessionData = {
+	[key: string]: SessionDataValue;
+};
+
 export type ValidationConfig = {
 	[ConfigSyntax.Tests]: TestArray;
-	[ConfigSyntax.SessionData]: {
-		[key: string]: string | string[] | null;
-	};
+	[ConfigSyntax.SessionData]: SessionData;
 };

@@ -3,28 +3,29 @@ import {
 	nodeReservedKeywords,
 	ExternalDataSyntax,
 	ConfigSyntax,
-} from "../../constants/syntax";
-import { buildAst } from "../../services/return-complier/ast";
-import { checkValidVariables } from "../../services/return-complier/ast-functions/semantic-validations";
-import { parseReturnInput } from "../../services/return-complier/parser";
-import { TestObject } from "../../types/config-types";
-import { ErrorDefinition } from "../../types/error-codes";
+} from "../../../constants/syntax.js";
+import { buildAst } from "../../../services/return-complier/ast.js";
+import { checkValidVariables } from "../../../services/return-complier/ast-functions/semantic-validations.js";
+import { parseReturnInput } from "../../../services/return-complier/parser.js";
+import { TestObject } from "../../../types/config-types.js";
+import { ErrorDefinition } from "../../../types/error-codes.js";
 import {
 	isSnakeCase,
 	isValidVariableName,
-} from "../../utils/general-utils/string-utils";
-import { isValidVariableValueType } from "../../utils/general-utils/validation-utils";
+} from "../../../utils/general-utils/string-utils.js";
+import { isValidVariableValueType } from "../../../utils/general-utils/validation-utils.js";
 import {
 	isValidJsonPath,
 	replaceBracketsWithAsteriskNested,
-} from "../../utils/json-path-utils/paths";
+} from "../../../utils/json-path-utils/paths.js";
 import {
 	TestObjectValidator,
 	TestsValidatorDependencies,
-} from "./abstract-validator";
+} from "../abstract-validator.js";
+import { TestsValidator } from "./test-list-validator.js";
 
 export class RequiredFieldsValidator extends TestObjectValidator {
-	async validate() {
+	validate = async () => {
 		if (!this.targetObject[TestObjectSyntax.Name]) {
 			throw new Error(
 				`${TestObjectSyntax.Name} is required at path ${this.validtionPath}`
@@ -35,11 +36,11 @@ export class RequiredFieldsValidator extends TestObjectValidator {
 				`${TestObjectSyntax.Return} is required at path ${this.validtionPath}`
 			);
 		}
-	}
+	};
 }
 
 export class NameValidator extends TestObjectValidator {
-	async validate() {
+	validate = async () => {
 		if (typeof this.targetObject[TestObjectSyntax.Name] !== "string") {
 			throw new Error(
 				`${TestObjectSyntax.Name} should be a string at path ${this.validtionPath}`
@@ -61,7 +62,7 @@ export class NameValidator extends TestObjectValidator {
 				`${TestObjectSyntax.Name} must be in snake_case at path ${this.validtionPath}`
 			);
 		}
-	}
+	};
 }
 
 export class ScopeValidator extends TestObjectValidator {
@@ -70,7 +71,7 @@ export class ScopeValidator extends TestObjectValidator {
 		super(testObject, path);
 		this.impossiblePaths = impossiblePaths;
 	}
-	async validate() {
+	validate = async () => {
 		const path = this.targetObject[TestObjectSyntax.Scope];
 		if (path !== "string") {
 			throw new Error(
@@ -89,7 +90,7 @@ export class ScopeValidator extends TestObjectValidator {
 				`${TestObjectSyntax.Scope} can't be a path that returns a array of string it must be a json path which returns a array of objects at path ${this.validtionPath}`
 			);
 		}
-	}
+	};
 }
 
 export class ErrorCodeValidator extends TestObjectValidator {
@@ -102,7 +103,7 @@ export class ErrorCodeValidator extends TestObjectValidator {
 		super(testObject, path);
 		this.possibleErrorCodes = possibleErrorCodes;
 	}
-	async validate() {
+	validate = async () => {
 		if (!this.targetObject[TestObjectSyntax.ErrorCode]) {
 			return;
 		}
@@ -117,7 +118,7 @@ export class ErrorCodeValidator extends TestObjectValidator {
 				`${TestObjectSyntax.ErrorCode} don't exist in error codes at path ${this.validtionPath}`
 			);
 		}
-	}
+	};
 }
 
 export class VariableValidator extends TestObjectValidator {
@@ -133,7 +134,7 @@ export class VariableValidator extends TestObjectValidator {
 		this.externalVariables = externalVariables;
 		this.possibleJsonPaths = posibleJsonPaths;
 	}
-	async validate() {
+	validate = async () => {
 		for (const key in this.targetObject) {
 			if (Object.values(TestObjectSyntax).includes(key as TestObjectSyntax)) {
 				continue;
@@ -166,7 +167,7 @@ export class VariableValidator extends TestObjectValidator {
 				}
 			}
 		}
-	}
+	};
 
 	validateKey(key: string) {
 		if (nodeReservedKeywords.has(key)) {
@@ -200,45 +201,6 @@ export class VariableValidator extends TestObjectValidator {
 	}
 }
 
-export class ReturnValidator extends TestObjectValidator {
-	definedVariables: string[];
-	stringJsonPaths: string[];
-	errorDefinitions: ErrorDefinition[];
-	externalVariables: string[];
-	constructor(
-		testObject: TestObject,
-		path: string,
-		stringJsonPaths: string[],
-		errorDefinitions: ErrorDefinition[],
-		externalVariables: string[]
-	) {
-		super(testObject, path);
-		this.definedVariables = Object.keys(testObject).filter(
-			(key) =>
-				!Object.values(TestObjectSyntax).includes(key as TestObjectSyntax)
-		);
-		this.stringJsonPaths = stringJsonPaths;
-		this.errorDefinitions = errorDefinitions;
-		this.externalVariables = externalVariables;
-	}
-	async validate() {
-		const returnStatement = this.targetObject[TestObjectSyntax.Return];
-		if (typeof returnStatement === "string") {
-			const cst = parseReturnInput(returnStatement);
-			const ast = buildAst(cst);
-			checkValidVariables(ast, this.definedVariables, this.validtionPath);
-			return;
-		}
-		// const completeValidator = new CompleteTestObjectValidator(
-		// 	returnStatement,
-		// 	this.validtionPath,
-		// 	this.stringJsonPaths,
-		// 	this.errorDefinitions,
-		// 	this.externalVariables
-		// );
-	}
-}
-
 export class ContinueValidator extends TestObjectValidator {
 	definedVariables: string[];
 	constructor(testObject: TestObject, path: string) {
@@ -248,62 +210,49 @@ export class ContinueValidator extends TestObjectValidator {
 				!Object.values(TestObjectSyntax).includes(key as TestObjectSyntax)
 		);
 	}
-	async validate() {
+	validate = async () => {
 		const contStatement = this.targetObject[TestObjectSyntax.Continue];
 		if (typeof contStatement === "string") {
 			const cst = parseReturnInput(contStatement);
 			const ast = buildAst(cst);
 			checkValidVariables(ast, this.definedVariables, this.validtionPath);
 		}
-	}
+	};
 }
 
-export class CompleteTestObjectValidator extends TestObjectValidator {
-	stringJsonPaths: string[];
-	errorDefinitions: ErrorDefinition[];
-	externalVariables: string[];
+export class ReturnValidator extends TestObjectValidator {
+	definedVariables: string[];
+	dependencies: TestsValidatorDependencies;
 	constructor(
 		testObject: TestObject,
 		path: string,
 		dependencies: TestsValidatorDependencies
 	) {
 		super(testObject, path);
-		this.stringJsonPaths = dependencies.stringJsonPaths;
-		this.errorDefinitions = dependencies.errorDefinitions;
-		this.externalVariables = dependencies.externalVariables;
+		this.definedVariables = Object.keys(testObject).filter(
+			(key) =>
+				!Object.values(TestObjectSyntax).includes(key as TestObjectSyntax)
+		);
+		this.dependencies = dependencies;
 	}
 	validate = async () => {
-		await new RequiredFieldsValidator(
-			this.targetObject,
-			this.validtionPath
-		).validate();
-		await new NameValidator(this.targetObject, this.validtionPath).validate();
-		await new ScopeValidator(
-			this.targetObject,
-			this.validtionPath,
-			this.stringJsonPaths
-		).validate();
-		await new ErrorCodeValidator(
-			this.targetObject,
-			this.validtionPath,
-			this.errorDefinitions
-		).validate();
-		await new VariableValidator(
-			this.targetObject,
-			this.validtionPath,
-			this.stringJsonPaths,
-			this.externalVariables
-		).validate();
-		await new ContinueValidator(
-			this.targetObject,
-			this.validtionPath
-		).validate();
-		await new ReturnValidator(
-			this.targetObject,
-			this.validtionPath,
-			this.stringJsonPaths,
-			this.errorDefinitions,
-			this.externalVariables
-		).validate();
+		const returnStatement = this.targetObject[TestObjectSyntax.Return];
+		if (typeof returnStatement === "string") {
+			const cst = parseReturnInput(returnStatement);
+			const ast = buildAst(cst);
+			checkValidVariables(ast, this.definedVariables, this.validtionPath);
+			return;
+		}
+		if (Array.isArray(returnStatement)) {
+			await new TestsValidator(
+				returnStatement,
+				this.validtionPath,
+				this.dependencies
+			).validate();
+			return;
+		}
+		throw new Error(
+			`${TestObjectSyntax.Return} should be a string or array at path ${this.validtionPath}`
+		);
 	};
 }
