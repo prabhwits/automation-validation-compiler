@@ -1,4 +1,6 @@
-import { parseInput } from "./services/rename-later/return-parser.js";
+import { checkValidVariables } from "./services/return-complier/ast-functions/semantic-validations.js";
+import { buildAst } from "./services/return-complier/ast.js";
+import { parseReturnInput } from "./services/return-complier/parser.js";
 
 const inputs = [
 	"( a all in b ) && (c are unique)",
@@ -9,6 +11,11 @@ const inputs = [
 	"X none in Y",
 ];
 
-const cst = parseInput(inputs[0]);
+const cst = parseReturnInput(inputs[0]);
+const ast = buildAst(cst);
 
-console.log(cst);
+try {
+	checkValidVariables(ast, ["a", "b", "c"], "path");
+} catch (e) {
+	console.log(e);
+}

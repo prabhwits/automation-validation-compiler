@@ -1,5 +1,5 @@
 import { CstNode } from "chevrotain";
-import { ReturnParserInstance } from "./return-parser";
+import { ReturnParserInstance } from "./parser.js";
 
 export interface AstNode {
 	type:
@@ -11,7 +11,7 @@ export interface AstNode {
 		| "identifier";
 }
 
-export interface returnStatementNode extends AstNode {
+export interface ReturnStatementNode extends AstNode {
 	expression: AstNode;
 }
 
@@ -27,14 +27,14 @@ export interface NotOperatorNode extends AstNode {
 }
 
 export interface CustomBinaryFunction extends AstNode {
-	operator: string;
-	lhs: AstNode;
-	rhs: AstNode;
+	customFunction: string;
+	lhs: IdentifierNode;
+	rhs: IdentifierNode;
 }
 
 export interface CustomUniaryFunction extends AstNode {
-	operator: string;
-	expression: AstNode;
+	customFunction: string;
+	expression: IdentifierNode;
 }
 
 export interface IdentifierNode extends AstNode {
@@ -47,7 +47,7 @@ export class AstBuilder extends ReturnParserInstance.getBaseCstVisitorConstructo
 		this.validateVisitor();
 	}
 
-	returnStatement(ctx: any): returnStatementNode {
+	returnStatement(ctx: any): ReturnStatementNode {
 		return {
 			type: "returnStatement",
 			expression: this.visit(ctx.orExpression),
@@ -93,7 +93,7 @@ export class AstBuilder extends ReturnParserInstance.getBaseCstVisitorConstructo
 
 	primaryExpression(
 		ctx: any
-	): returnStatementNode | CustomBinaryFunction | CustomUniaryFunction {
+	): ReturnStatementNode | CustomBinaryFunction | CustomUniaryFunction {
 		if (ctx.parentheisizedExpression) {
 			return this.visit(ctx.parentheisizedExpression);
 		}
@@ -103,9 +103,37 @@ export class AstBuilder extends ReturnParserInstance.getBaseCstVisitorConstructo
 		throw new Error("Invalid primary expression");
 	}
 
-	parentheisizedExpression(ctx: any): returnStatementNode {
+	parentheisizedExpression(ctx: any): ReturnStatementNode {
 		return this.visit(ctx.returnStatement);
 	}
 
-	atomicCustomExpression(ctx: any) {}
+	atomicCustomExpression(
+		ctx: any
+	): CustomBinaryFunction | CustomUniaryFunction {
+		if (ctx.rhs) {
+			return {
+				type: "customBinaryFunction",
+				customFunction: ctx.function[0].image,
+				lhs: this.visitIdentifier(ctx.lhs[0]),
+				rhs: this.visitIdentifier(ctx.rhs[0]),
+			};
+		}
+		return {
+			type: "customUniaryFunction",
+			customFunction: ctx.function[0].image,
+			expression: this.visitIdentifier(ctx.lhs[0]),
+		};
+	}
+
+	visitIdentifier(token: any): IdentifierNode {
+		return {
+			type: "identifier",
+			name: token.image,
+		};
+	}
+}
+
+export function buildAst(cst: CstNode): AstNode {
+	const astBuilder = new AstBuilder();
+	return astBuilder.visit(cst);
 }

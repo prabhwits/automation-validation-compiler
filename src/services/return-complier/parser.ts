@@ -86,14 +86,14 @@ class ReturnParser extends CstParser {
 				{
 					ALT: () => {
 						$.CONSUME1(Identifier, { LABEL: "lhs" });
-						$.CONSUME(CustomBinaryFunctions);
+						$.CONSUME(CustomBinaryFunctions, { LABEL: "function" });
 						$.CONSUME2(Identifier, { LABEL: "rhs" });
 					},
 				},
 				{
 					ALT: () => {
 						$.CONSUME3(Identifier, { LABEL: "lhs" });
-						$.CONSUME(CustomUniaryFunctions);
+						$.CONSUME(CustomUniaryFunctions, { LABEL: "function" });
 					},
 				},
 			]);
@@ -105,7 +105,7 @@ class ReturnParser extends CstParser {
 
 export const ReturnParserInstance = new ReturnParser();
 
-export function parseInput(inputText: string) {
+export function parseReturnInput(inputText: string) {
 	// Step 1: Tokenize the input
 	const lexResult = ReturnTokenize(inputText);
 
