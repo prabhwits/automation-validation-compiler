@@ -12,12 +12,12 @@ import { TestsValidator } from "./tests-config/test-list-validator.js";
 export class ConfigValidator implements IValidator {
 	validtionPath: string;
 	config: ValidationConfig;
-	stringJsonPaths: string[];
+	stringJsonPaths: Record<string, string[]>;
 	errorDefinitions: ErrorDefinition[];
 	constructor(
 		validtionPath: string,
 		config: ValidationConfig,
-		stringJsonPaths: string[],
+		stringJsonPaths: Record<string, string[]>,
 		errorDefinitions: ErrorDefinition[]
 	) {
 		this.validtionPath = validtionPath;
@@ -45,7 +45,7 @@ export class ConfigValidator implements IValidator {
 			const testList = tests[api];
 			const path = `${this.validtionPath}/${ConfigSyntax.Tests}/${api}`;
 			const dependencies: TestsValidatorDependencies = {
-				stringJsonPaths: this.stringJsonPaths,
+				stringJsonPaths: this.stringJsonPaths[api],
 				errorDefinitions: this.errorDefinitions,
 				externalVariables: externalVariables,
 			};

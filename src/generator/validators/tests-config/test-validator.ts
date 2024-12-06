@@ -1,4 +1,6 @@
+import { TestObjectSyntax } from "../../../constants/syntax.js";
 import { TestObject } from "../../../types/config-types.js";
+
 import {
 	TestObjectValidator,
 	TestsValidatorDependencies,
@@ -29,26 +31,35 @@ export class CompleteTestObjectValidator extends TestObjectValidator {
 			this.validtionPath
 		).validate();
 		await new NameValidator(this.targetObject, this.validtionPath).validate();
-		await new ScopeValidator(
-			this.targetObject,
-			this.validtionPath,
-			this.dependencies.stringJsonPaths
-		).validate();
-		await new ErrorCodeValidator(
-			this.targetObject,
-			this.validtionPath,
-			this.dependencies.errorDefinitions
-		).validate();
+
+		if (this.targetObject[TestObjectSyntax.Scope]) {
+			await new ScopeValidator(
+				this.targetObject,
+				this.validtionPath,
+				this.dependencies.stringJsonPaths
+			).validate();
+		}
+
+		if (this.targetObject[TestObjectSyntax.ErrorCode]) {
+			await new ErrorCodeValidator(
+				this.targetObject,
+				this.validtionPath,
+				this.dependencies.errorDefinitions
+			).validate();
+		}
+
 		await new VariableValidator(
 			this.targetObject,
 			this.validtionPath,
 			this.dependencies.stringJsonPaths,
 			this.dependencies.externalVariables
 		).validate();
-		await new ContinueValidator(
-			this.targetObject,
-			this.validtionPath
-		).validate();
+		if (this.targetObject[TestObjectSyntax.Continue]) {
+			await new ContinueValidator(
+				this.targetObject,
+				this.validtionPath
+			).validate();
+		}
 		await new ReturnValidator(
 			this.targetObject,
 			this.validtionPath,

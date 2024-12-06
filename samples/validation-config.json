@@ -6,7 +6,7 @@
 				"attr": "$.context.location.country.code",
 				"nulls": [null],
 				"_RETURN_": "attr none in nulls",
-				"_ERROR_CODE_": "50001"
+				"_ERROR_CODE_": 50001
 			},
 			{
 				"_NAME_": "validate_attribute_2",

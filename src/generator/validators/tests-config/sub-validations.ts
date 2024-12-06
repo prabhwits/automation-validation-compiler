@@ -23,6 +23,7 @@ import {
 	TestsValidatorDependencies,
 } from "../abstract-validator.js";
 import { TestsValidator } from "./test-list-validator.js";
+import logger from "../../../utils/logger.js";
 
 export class RequiredFieldsValidator extends TestObjectValidator {
 	validate = async () => {
@@ -211,11 +212,19 @@ export class ContinueValidator extends TestObjectValidator {
 		);
 	}
 	validate = async () => {
-		const contStatement = this.targetObject[TestObjectSyntax.Continue];
-		if (typeof contStatement === "string") {
-			const cst = parseReturnInput(contStatement);
-			const ast = buildAst(cst);
-			checkValidVariables(ast, this.definedVariables, this.validtionPath);
+		try {
+			const contStatement = this.targetObject[TestObjectSyntax.Continue];
+			if (typeof contStatement === "string") {
+				const cst = parseReturnInput(contStatement);
+				const ast = buildAst(cst);
+				checkValidVariables(ast, this.definedVariables, this.validtionPath);
+				return;
+			}
+			throw new Error(
+				`${TestObjectSyntax.Continue} should be a string at path ${this.validtionPath}`
+			);
+		} catch (err: any) {
+			throw new Error(err.message + " at path " + this.validtionPath);
 		}
 	};
 }
@@ -236,23 +245,27 @@ export class ReturnValidator extends TestObjectValidator {
 		this.dependencies = dependencies;
 	}
 	validate = async () => {
-		const returnStatement = this.targetObject[TestObjectSyntax.Return];
-		if (typeof returnStatement === "string") {
-			const cst = parseReturnInput(returnStatement);
-			const ast = buildAst(cst);
-			checkValidVariables(ast, this.definedVariables, this.validtionPath);
-			return;
+		try {
+			const returnStatement = this.targetObject[TestObjectSyntax.Return];
+			if (typeof returnStatement === "string") {
+				const cst = parseReturnInput(returnStatement);
+				const ast = buildAst(cst);
+				checkValidVariables(ast, this.definedVariables, this.validtionPath);
+				return;
+			}
+			if (Array.isArray(returnStatement)) {
+				await new TestsValidator(
+					returnStatement,
+					this.validtionPath,
+					this.dependencies
+				).validate();
+				return;
+			}
+			throw new Error(
+				`${TestObjectSyntax.Return} should be a string or arrays`
+			);
+		} catch (err: any) {
+			throw new Error(err.message + " at path " + this.validtionPath);
 		}
-		if (Array.isArray(returnStatement)) {
-			await new TestsValidator(
-				returnStatement,
-				this.validtionPath,
-				this.dependencies
-			).validate();
-			return;
-		}
-		throw new Error(
-			`${TestObjectSyntax.Return} should be a string or array at path ${this.validtionPath}`
-		);
 	};
 }

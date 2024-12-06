@@ -5,6 +5,8 @@ import { SchemaExtactionService } from "../services/schema-service.js";
 import { ErrorDefinition } from "../types/error-codes.js";
 import { ConfigValidator } from "./validators/config-validator.js";
 import { ValidationConfig } from "../types/config-types.js";
+import logger from "../utils/logger.js";
+import { SupportedLanguages } from "../types/compiler-types.js";
 
 type CodeGeneratorConfig = {
 	removeRequiredfromSchema: boolean;
@@ -21,8 +23,10 @@ export class ConfigCompiler {
 	jsonSchemas: Record<string, JSONSchema7> | undefined;
 	possibleJsonPahts: Record<string, string[]> | undefined;
 	errorDefinitions: ErrorDefinition[] | undefined;
+	language: SupportedLanguages;
 	private SchemaExtactionService: SchemaExtactionService;
-	constructor() {
+	constructor(language: SupportedLanguages) {
+		this.language = language;
 		this.SchemaExtactionService = new SchemaExtactionService();
 	}
 	// 1. extract build, create schemas , extract possible paths , extract errorcodes
@@ -45,18 +49,34 @@ export class ConfigCompiler {
 	};
 
 	performValidations = async (valConfig: ValidationConfig) => {
-		if (!this.buildData) throw new Error("Build data not initialized");
-		if (!this.jsonSchemas) throw new Error("Schemas not initialized");
-		if (!this.possibleJsonPahts)
-			throw new Error("Possible paths not initialized");
-		if (!this.errorDefinitions)
-			throw new Error("Error definitions not initialized");
+		try {
+			if (!this.buildData) throw new Error("Build data not initialized");
+			if (!this.jsonSchemas) throw new Error("Schemas not initialized");
+			if (!this.possibleJsonPahts)
+				throw new Error("Possible paths not initialized");
+			if (!this.errorDefinitions)
+				throw new Error("Error definitions not initialized");
 
-		await new ConfigValidator(
-			"",
-			valConfig,
-			this.possibleJsonPahts["stringJsonPaths"],
-			this.errorDefinitions
-		).validate();
+			await new ConfigValidator(
+				"",
+				valConfig,
+				this.possibleJsonPahts,
+				this.errorDefinitions
+			).validate();
+		} catch (e) {
+			logger.error(e);
+		}
+	};
+
+	generateCode = async (valConfig: ValidationConfig) => {
+		await this.performValidations(valConfig);
+		// Generate code based on the language
+		switch (this.language) {
+			case SupportedLanguages.Typescript:
+				// Generate typescript code
+				break;
+			default:
+				throw new Error("Language not supported");
+		}
 	};
 }

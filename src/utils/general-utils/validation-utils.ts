@@ -12,7 +12,7 @@ export function isValidVariableValueType(line: any): line is ValidVariableLine {
 	if (typeof line === "string") {
 		return true;
 	}
-	return isPrimitive(line);
+	return Array.isArray(line) && line.every((item) => isPrimitive(item));
 }
 
 export function getExternalVariables(
