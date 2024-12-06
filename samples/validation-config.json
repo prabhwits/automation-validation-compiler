@@ -1,0 +1,111 @@
+{
+	"_TESTS_": {
+		"search": [
+			{
+				"_NAME_": "validate_attribute_1",
+				"attr": "$.context.location.country.code",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls",
+				"_ERROR_CODE_": "50001"
+			},
+			{
+				"_NAME_": "validate_attribute_2",
+				"attr": "$.context.location.city.code",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_3",
+				"attr": "$.context.domain",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_5",
+				"attr": "$.context.bap_id",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_6",
+				"attr": "$.context.transaction_id",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_7",
+				"attr": "$.context.message_id",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_8",
+				"attr": "$.context.version",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_9",
+				"attr": "$.context.action",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_10",
+				"attr": "$.context.bap_uri",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_11",
+				"attr": "$.context.ttl",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_attribute_12",
+				"attr": "$.message.intent.fulfillment.vehicle.category",
+				"nulls": [null],
+				"_RETURN_": "attr none in nulls"
+			},
+			{
+				"_NAME_": "validate_enum_1",
+				"enumList": ["search"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "validate_enum_2",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "validate_enum_4",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "validate_enum_5",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.intent.fulfillment.vehicle.category",
+				"_RETURN_": "enumPath all in enumList"
+			},
+
+			{
+				"_NAME_": "validate_enum_8",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.intent.fulfillment.stops[*].type",
+				"_RETURN_": "enumPath all in enumList"
+			}
+		]
+	},
+	"_SESSION_DATA_": {}
+}

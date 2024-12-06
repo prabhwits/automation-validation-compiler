@@ -1,7 +1,10 @@
 import { JSONSchema7 } from "json-schema";
-import { BUID_TYPE } from "../types/build";
-import { loadAndDereferenceYaml } from "../utils/config-utils/yaml";
-import { SchemaExtactionService } from "../services/schema-service";
+import { BUID_TYPE } from "../types/build.js";
+import { loadAndDereferenceYaml } from "../utils/config-utils/yaml.js";
+import { SchemaExtactionService } from "../services/schema-service.js";
+import { ErrorDefinition } from "../types/error-codes.js";
+import { ConfigValidator } from "./validators/config-validator.js";
+import { ValidationConfig } from "../types/config-types.js";
 
 type CodeGeneratorConfig = {
 	removeRequiredfromSchema: boolean;
@@ -13,10 +16,11 @@ const defaultConfig: CodeGeneratorConfig = {
 	removeEnumsfromSchema: true,
 };
 
-class ConfigCompiler {
+export class ConfigCompiler {
 	buildData: BUID_TYPE | undefined;
 	jsonSchemas: Record<string, JSONSchema7> | undefined;
 	possibleJsonPahts: Record<string, string[]> | undefined;
+	errorDefinitions: ErrorDefinition[] | undefined;
 	private SchemaExtactionService: SchemaExtactionService;
 	constructor() {
 		this.SchemaExtactionService = new SchemaExtactionService();
@@ -36,5 +40,23 @@ class ConfigCompiler {
 		this.possibleJsonPahts = this.SchemaExtactionService.extractPossiblePaths(
 			this.jsonSchemas
 		);
+		const errors = this.buildData["x-errorcodes"];
+		this.errorDefinitions = errors.code;
+	};
+
+	performValidations = async (valConfig: ValidationConfig) => {
+		if (!this.buildData) throw new Error("Build data not initialized");
+		if (!this.jsonSchemas) throw new Error("Schemas not initialized");
+		if (!this.possibleJsonPahts)
+			throw new Error("Possible paths not initialized");
+		if (!this.errorDefinitions)
+			throw new Error("Error definitions not initialized");
+
+		await new ConfigValidator(
+			"",
+			valConfig,
+			this.possibleJsonPahts["stringJsonPaths"],
+			this.errorDefinitions
+		).validate();
 	};
 }

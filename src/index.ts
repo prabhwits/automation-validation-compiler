@@ -1,21 +1,25 @@
-import { checkValidVariables } from "./services/return-complier/ast-functions/semantic-validations.js";
-import { buildAst } from "./services/return-complier/ast.js";
-import { parseReturnInput } from "./services/return-complier/parser.js";
+import { readFileSync } from "fs";
+import { ConfigCompiler } from "./Generator/config-compiler.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const inputs = [
-	"( a all in b ) && (c are unique)",
-	"a all in b",
-	"A all in B",
-	"A are unique",
-	"X follow regex reg",
-	"X none in Y",
-];
+// Get __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const cst = parseReturnInput(inputs[0]);
-const ast = buildAst(cst);
+const main = async () => {
+	const compiler = new ConfigCompiler();
+	const buildPath = path.resolve(__dirname, "../samples/build.yaml");
+	const valConfigPath = path.resolve(
+		__dirname,
+		"../samples/validation-config.json"
+	);
+	const buildYaml = readFileSync(buildPath, "utf-8");
+	const valConfig = JSON.parse(readFileSync(valConfigPath, "utf-8"));
+	await compiler.initialize(buildYaml);
+	await compiler.performValidations(valConfig);
+};
 
-try {
-	checkValidVariables(ast, ["a", "b", "c"], "path");
-} catch (e) {
-	console.log(e);
-}
+(async () => {
+	await main();
+})();

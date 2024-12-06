@@ -14,11 +14,11 @@ export type TestArray = TestObject[];
 
 export type SessionDataValue = string | Primitive[] | null;
 
-export type SessionData = {
+export type SessionDataApi = {
 	[key: string]: SessionDataValue;
 };
 
 export type ValidationConfig = {
-	[ConfigSyntax.Tests]: TestArray;
-	[ConfigSyntax.SessionData]: SessionData;
+	[ConfigSyntax.Tests]: Record<string, TestArray>;
+	[ConfigSyntax.SessionData]: Record<string, SessionDataApi>;
 };

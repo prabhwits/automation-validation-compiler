@@ -1,20 +1,55 @@
-/*
-    validations: 
-        a single test object validations:  
-            1. name validations
-            2. scope validation
-            3. variable validation
-            4. continue and return validations
-            5. errorcode validations
-            6. json path validations
-            7. external data validations
+import { ConfigSyntax } from "../../constants/syntax.js";
+import { ValidationConfig } from "../../types/config-types.js";
+import { ErrorDefinition } from "../../types/error-codes.js";
+import { getExternalVariables } from "../../utils/general-utils/validation-utils.js";
+import {
+	IValidator,
+	TestsValidatorDependencies,
+} from "./abstract-validator.js";
+import { SessionDataValidator } from "./session-data-config/session-data-validator.js";
+import { TestsValidator } from "./tests-config/test-list-validator.js";
 
-        upper validations:
-            1. unique names
-            2. _session_data_ are valid 
-            3. _tests_ are valid   
-        
-        x-errorcode validations:
-            1. all codes are unique
-*/
-export class ConfigValidator {}
+export class ConfigValidator implements IValidator {
+	validtionPath: string;
+	config: ValidationConfig;
+	stringJsonPaths: string[];
+	errorDefinitions: ErrorDefinition[];
+	constructor(
+		validtionPath: string,
+		config: ValidationConfig,
+		stringJsonPaths: string[],
+		errorDefinitions: ErrorDefinition[]
+	) {
+		this.validtionPath = validtionPath;
+		this.config = config;
+		this.stringJsonPaths = stringJsonPaths;
+		this.errorDefinitions = errorDefinitions;
+	}
+	validate = async () => {
+		if (!this.config[ConfigSyntax.Tests])
+			throw new Error(`Tests not found in config`);
+		if (!this.config[ConfigSyntax.SessionData])
+			throw new Error(`SessionData not found in config`);
+
+		const sessionData = this.config[ConfigSyntax.SessionData];
+		const tests = this.config[ConfigSyntax.Tests];
+
+		await new SessionDataValidator(
+			`${this.validtionPath}/${ConfigSyntax.SessionData}`,
+			sessionData
+		).validate();
+
+		const externalVariables = getExternalVariables(sessionData);
+
+		for (const api in tests) {
+			const testList = tests[api];
+			const path = `${this.validtionPath}/${ConfigSyntax.Tests}/${api}`;
+			const dependencies: TestsValidatorDependencies = {
+				stringJsonPaths: this.stringJsonPaths,
+				errorDefinitions: this.errorDefinitions,
+				externalVariables: externalVariables,
+			};
+			await new TestsValidator(testList, path, dependencies).validate();
+		}
+	};
+}

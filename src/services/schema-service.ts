@@ -1,7 +1,7 @@
 import { JSONSchema7 } from "json-schema";
-import { BUID_TYPE } from "../types/build";
-import { removeRequiredAndEnum } from "../utils/config-utils/json-schema-utils";
-import { getAllJsonPaths } from "../utils/json-path-utils/extract-string-paths";
+import { BUID_TYPE } from "../types/build.js";
+import { removeRequiredAndEnum } from "../utils/config-utils/json-schema-utils.js";
+import { getAllJsonPaths } from "../utils/json-path-utils/extract-string-paths.js";
 
 export class SchemaExtactionService {
 	extractSchemas = async (

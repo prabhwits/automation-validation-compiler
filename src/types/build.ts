@@ -1,3 +1,5 @@
+import { ErrorDefinition } from "./error-codes";
+
 export interface Xattributes {
 	[key: string]: AttributeSet;
 }
@@ -43,4 +45,7 @@ export interface BUID_TYPE {
 	paths: BuildPath;
 	"x-enum": any;
 	"x-attributes": Xattributes;
+	"x-errorcodes": {
+		code: ErrorDefinition[];
+	};
 }
