@@ -1,8 +1,9 @@
 import { readFileSync } from "fs";
-import { ConfigCompiler } from "./Generator/config-compiler.js";
+
 import path from "path";
 import { fileURLToPath } from "url";
 import { SupportedLanguages } from "./types/compiler-types.js";
+import { ConfigCompiler } from "./generator/config-compiler.js";
 
 // Get __dirname equivalent
 const __filename = fileURLToPath(import.meta.url);
@@ -18,7 +19,8 @@ const main = async () => {
 	const buildYaml = readFileSync(buildPath, "utf-8");
 	const valConfig = JSON.parse(readFileSync(valConfigPath, "utf-8"));
 	await compiler.initialize(buildYaml);
-	await compiler.performValidations(valConfig);
+	await compiler.generateCode(valConfig);
+	// await compiler.performValidations(valConfig);
 };
 
 (async () => {

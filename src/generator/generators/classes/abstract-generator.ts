@@ -11,10 +11,8 @@ import { ValidationConfig } from "../../../types/config-types";
 */
 export abstract class CodeGenerator {
 	validationConfig: ValidationConfig;
-	rootPath: string;
-	constructor(validationConfig: ValidationConfig, rootPath: string) {
+	constructor(validationConfig: ValidationConfig) {
 		this.validationConfig = validationConfig;
-		this.rootPath = rootPath;
 	}
 	abstract generateSessionDataCode(): Promise<string>;
 	abstract generateValidationCode(): Promise<string>;

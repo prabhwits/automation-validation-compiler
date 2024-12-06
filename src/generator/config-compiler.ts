@@ -3,10 +3,11 @@ import { BUID_TYPE } from "../types/build.js";
 import { loadAndDereferenceYaml } from "../utils/config-utils/yaml.js";
 import { SchemaExtactionService } from "../services/schema-service.js";
 import { ErrorDefinition } from "../types/error-codes.js";
-import { ConfigValidator } from "./validators/config-validator.js";
 import { ValidationConfig } from "../types/config-types.js";
 import logger from "../utils/logger.js";
 import { SupportedLanguages } from "../types/compiler-types.js";
+import { ConfigValidator } from "./validators/config-validator.js";
+import { TypescriptGenerator } from "./generators/typescript/ts-generator.js";
 
 type CodeGeneratorConfig = {
 	removeRequiredfromSchema: boolean;
@@ -73,7 +74,7 @@ export class ConfigCompiler {
 		// Generate code based on the language
 		switch (this.language) {
 			case SupportedLanguages.Typescript:
-				// Generate typescript code
+				await new TypescriptGenerator(valConfig).generateTestObject();
 				break;
 			default:
 				throw new Error("Language not supported");

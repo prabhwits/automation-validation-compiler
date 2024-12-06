@@ -15,6 +15,7 @@
 		"@types/js-yaml": "^4.0.9",
 		"@types/json-schema": "^7.0.15",
 		"@types/jsonpath": "^0.2.4",
+		"@types/mustache": "^4.2.5",
 		"@types/node": "^22.10.1",
 		"esm-loader-typescript": "^1.0.6",
 		"nodemon": "^3.1.7",
@@ -29,6 +30,7 @@
 		"json-schema": "^0.4.0",
 		"json-to-yaml-ref": "^1.0.0",
 		"jsonpath": "^1.1.1",
+		"mustache": "^4.2.0",
 		"winston": "^3.17.0"
 	}
 }
