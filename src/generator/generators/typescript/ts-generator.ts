@@ -1,11 +1,13 @@
 import { readFileSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-
 import { ConfigSyntax, TestObjectSyntax } from "../../../constants/syntax.js";
 import { CodeGenerator } from "../classes/abstract-generator.js";
 import Mustache from "mustache";
-import logger from "../../../utils/logger.js";
+import { markdownMessageGenerator } from "../markdown-message-generator.js";
+import { getVariablesFromTest as extractVariablesFromText } from "../../../utils/general-utils/test-object-utils.js";
+import { ConfigVariable, TestObject } from "../../../types/config-types.js";
+import { ConvertArrayToString } from "../../../utils/general-utils/string-utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,24 +23,56 @@ export class TypescriptGenerator extends CodeGenerator {
 		throw new Error("Method not implemented.");
 	}
 
-	generateTestObject = async () => {
-		const testObject = this.validationConfig[ConfigSyntax.Tests].search[0];
+	generateTestFunction = async (testObject: TestObject) => {
 		const template = readFileSync(
 			path.resolve(__dirname, "./templates/test-object.mustache"),
 			"utf-8"
 		);
+		const skip = testObject[TestObjectSyntax.Continue];
+		const skipList = skip ? [skip] : undefined;
 		const view: mustachRequirements = {
 			name: testObject[TestObjectSyntax.Name],
 			scopePath: testObject[TestObjectSyntax.Scope] ?? "$",
-			variables: [],
+			variables: this.createVariablesCode(testObject),
 			hasContinue: testObject[TestObjectSyntax.Continue] ? true : false,
 			returnStatement: testObject[TestObjectSyntax.Return] as string,
 			errorCode: testObject[TestObjectSyntax.ErrorCode] ?? 30000,
-			errorDescription: "Error description",
+			errorDescription: this.CreateErrorMarkdown(testObject, skipList),
 		};
-		const output = Mustache.render(template, view);
-		logger.debug(output);
+		return {
+			funcName: testObject[TestObjectSyntax.Name],
+			code: Mustache.render(template, view),
+		};
 	};
+
+	private CreateErrorMarkdown(
+		testObject: TestObject,
+		skipList: string[] | undefined
+	) {
+		return markdownMessageGenerator(
+			testObject[TestObjectSyntax.Return] as string,
+			testObject,
+			"A",
+			skipList
+		);
+	}
+
+	private createVariablesCode(testObject: TestObject) {
+		const variables: { name: string; value: string }[] = [];
+		const varNames = extractVariablesFromText(testObject);
+		for (const name of varNames) {
+			const value = testObject[name] as ConfigVariable;
+			const final =
+				typeof value === "string"
+					? `payloadUtils.getJsonPath(testObj, '${value}')`
+					: ConvertArrayToString(value);
+			variables.push({
+				name: name,
+				value: final,
+			});
+		}
+		return variables;
+	}
 }
 
 interface mustachRequirements {
@@ -46,7 +80,7 @@ interface mustachRequirements {
 	scopePath: string;
 	variables: {
 		name: string;
-		path: string;
+		value: string;
 	}[];
 	hasContinue: boolean;
 	skipCheckStatement?: string;

@@ -1,11 +1,20 @@
 {
 	"_TESTS_": {
-		"search": [
+		"init": [
+			{
+				"_NAME_": "finder_fees_percetage_check",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')].list[?(@.descriptor.code=='BUYER_FINDER_FEES_PERCENTAGE')]",
+				"value": "$.value",
+				"reg": ["^[0-9]{1,2}$"],
+				"nulls": [null],
+				"_RETURN_": "(value none in nulls) && (value follow regex reg)"
+			},
 			{
 				"_NAME_": "validate_attribute_1",
 				"attr": "$.context.location.country.code",
 				"nulls": [null],
 				"_RETURN_": "attr none in nulls",
+				"_CONTINUE_": "attr are unique",
 				"_ERROR_CODE_": 50001
 			},
 			{
@@ -69,12 +78,6 @@
 				"_RETURN_": "attr none in nulls"
 			},
 			{
-				"_NAME_": "validate_attribute_12",
-				"attr": "$.message.intent.fulfillment.vehicle.category",
-				"nulls": [null],
-				"_RETURN_": "attr none in nulls"
-			},
-			{
 				"_NAME_": "validate_enum_1",
 				"enumList": ["search"],
 				"enumPath": "$.context.action",
@@ -90,19 +93,6 @@
 				"_NAME_": "validate_enum_4",
 				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
-				"_RETURN_": "enumPath all in enumList"
-			},
-			{
-				"_NAME_": "validate_enum_5",
-				"enumList": ["METRO"],
-				"enumPath": "$.message.intent.fulfillment.vehicle.category",
-				"_RETURN_": "enumPath all in enumList"
-			},
-
-			{
-				"_NAME_": "validate_enum_8",
-				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
-				"enumPath": "$.message.intent.fulfillment.stops[*].type",
 				"_RETURN_": "enumPath all in enumList"
 			}
 		]

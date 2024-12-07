@@ -7,8 +7,10 @@ export type TestObject = {
 	[TestObjectSyntax.Scope]?: string;
 	[TestObjectSyntax.ErrorCode]?: number;
 	[TestObjectSyntax.Continue]?: string;
-	[key: string]: string | string[] | number | TestObject[] | undefined;
+	[key: string]: ConfigVariable | number | TestObject[] | undefined;
 };
+
+export type ConfigVariable = string | Primitive[];
 
 export type TestArray = TestObject[];
 

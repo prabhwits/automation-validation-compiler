@@ -66,6 +66,7 @@ export class ConfigCompiler {
 			).validate();
 		} catch (e) {
 			logger.error(e);
+			throw new Error("Validation failed");
 		}
 	};
 
@@ -74,7 +75,9 @@ export class ConfigCompiler {
 		// Generate code based on the language
 		switch (this.language) {
 			case SupportedLanguages.Typescript:
-				await new TypescriptGenerator(valConfig).generateTestObject();
+				await new TypescriptGenerator(valConfig).generateTestFunction(
+					valConfig._TESTS_.init[0]
+				);
 				break;
 			default:
 				throw new Error("Language not supported");

@@ -55,29 +55,37 @@ export class AstBuilder extends ReturnParserInstance.getBaseCstVisitorConstructo
 	}
 
 	orExpression(ctx: any): BinnaryOperatorNode | AstNode {
-		const lhs = this.visit(ctx.lhs);
+		let left = this.visit(ctx.lhs);
+		if (!ctx.operator) return left;
+
 		if (ctx.operator) {
-			return {
-				type: "binnaryOperator",
-				operator: ctx.operator[0].image,
-				lhs: lhs,
-				rhs: this.visit(ctx.rhs),
-			};
+			for (let i = 0; i < ctx.operator.length; i++) {
+				left = {
+					type: "binnaryOperator",
+					operator: ctx.operator[i].image,
+					lhs: left,
+					rhs: this.visit(ctx.rhs[i]),
+				};
+			}
 		}
-		return lhs;
+		return left;
 	}
 
 	andExpression(ctx: any): BinnaryOperatorNode | AstNode {
-		const lhs = this.visit(ctx.lhs);
+		let left = this.visit(ctx.lhs);
+		if (!ctx.operator) return left;
+
 		if (ctx.operator) {
-			return {
-				type: "binnaryOperator",
-				operator: ctx.operator[0].image,
-				lhs: lhs,
-				rhs: this.visit(ctx.rhs),
-			};
+			for (let i = 0; i < ctx.operator.length; i++) {
+				left = {
+					type: "binnaryOperator",
+					operator: ctx.operator[i].image,
+					lhs: left,
+					rhs: this.visit(ctx.rhs[i]),
+				};
+			}
 		}
-		return lhs;
+		return left;
 	}
 
 	notExpression(ctx: any): NotOperatorNode | AstNode {

@@ -28,6 +28,13 @@ export const AllIn = createToken({
 	label: "all in",
 });
 
+export const AnyIn = createToken({
+	name: "AnyIn",
+	pattern: /any in/i,
+	categories: CustomBinaryFunctions,
+	label: "any in",
+});
+
 export const AreUnique = createToken({
 	name: "AreUnique",
 	pattern: /are unique/i,
@@ -47,6 +54,24 @@ export const NoneIn = createToken({
 	pattern: /none in/i,
 	categories: CustomBinaryFunctions,
 	label: "none in",
+});
+
+export const EqualTo = createToken({
+	name: "EqualTo",
+	pattern: /equal to/i,
+	label: "equal to",
+});
+
+export const GreaterThan = createToken({
+	name: "GreaterThan",
+	pattern: /greater than/i,
+	label: "greater than",
+});
+
+export const LessThan = createToken({
+	name: "LessThan",
+	pattern: /less than/i,
+	label: "less than",
 });
 
 export const WhiteSpace = createToken({
@@ -98,8 +123,12 @@ export const allTokens = [
 	AndOperator,
 	OrOperator,
 	NotOperator,
-	AllIn,
 	AreUnique,
+	AllIn,
+	AnyIn,
+	EqualTo,
+	GreaterThan,
+	LessThan,
 	FollowRegex,
 	NoneIn,
 	CustomUniaryFunctions,

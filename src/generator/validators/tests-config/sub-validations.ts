@@ -74,7 +74,7 @@ export class ScopeValidator extends TestObjectValidator {
 	}
 	validate = async () => {
 		const path = this.targetObject[TestObjectSyntax.Scope];
-		if (path !== "string") {
+		if (typeof path !== "string") {
 			throw new Error(
 				`${TestObjectSyntax.Scope} should be a string at path ${this.validtionPath}`
 			);
@@ -82,6 +82,11 @@ export class ScopeValidator extends TestObjectValidator {
 		if (!isValidJsonPath(path)) {
 			throw new Error(
 				`${TestObjectSyntax.Scope} should be a valid json path at path ${this.validtionPath}`
+			);
+		}
+		if (!path.startsWith(`$.`)) {
+			throw new Error(
+				`${TestObjectSyntax.Scope} json path should start with $. at ${this.validtionPath}`
 			);
 		}
 		if (
@@ -144,26 +149,39 @@ export class VariableValidator extends TestObjectValidator {
 			const value = this.targetObject[key];
 			if (!isValidVariableValueType(value)) {
 				throw new Error(
-					`${key} should be a string or array of primitives at path ${this.validtionPath}`
+					`Variable: ${key} should be a string or array of primitives at path ${this.validtionPath}`
 				);
 			}
 			if (typeof value === "string") {
 				if (!isValidJsonPath(value)) {
 					throw new Error(
-						`${key} should be a valid jsonPath at ${this.validtionPath}`
+						`Variable: ${key} should be a valid jsonPath at ${this.validtionPath}`
+					);
+				}
+				if (!value.startsWith(`$.`)) {
+					throw new Error(
+						`Variable: ${key} should start with $. at ${this.validtionPath}`
 					);
 				}
 				if (value.startsWith(`$.${ExternalDataSyntax}`)) {
 					this.validateExternalData(value, this.externalVariables);
 					return;
 				}
+
+				let path = value;
+				if (this.targetObject[TestObjectSyntax.Scope]) {
+					const scope = this.targetObject[TestObjectSyntax.Scope];
+					const pathWithoutDollar = path.slice(2);
+					path = `${scope}.${pathWithoutDollar}`;
+				}
+
 				if (
 					!this.possibleJsonPaths.includes(
-						replaceBracketsWithAsteriskNested(value)
+						replaceBracketsWithAsteriskNested(path)
 					)
 				) {
 					throw new Error(
-						`${key} should be a jsonPath that returns a array of objects, at ${this.validtionPath}`
+						`Variable: ${key} should be a jsonPath that returns a array of strings or the path don't exist in the schema, at ${this.validtionPath}`
 					);
 				}
 			}

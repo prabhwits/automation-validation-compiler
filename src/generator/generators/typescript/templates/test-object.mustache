@@ -1,24 +1,24 @@
 function {{name}}(payload: any,externalData = {}){
-    const scope = payload.getJsonPath(payload,"{{scopePath}}");
+    const scope = payload.getJsonPath(payload,"{{{scopePath}}}");
     for(const testObj of scope){
         testObj._EXTERNAL = externalData;
         {{#variables}}
-        const {{name}} = payload.getJsonPath(testObj,"{{path}}");
+        const {{name}} = {{{value}}}
         {{/variables}}
-
+        
         {{#hasContinue}}
-            const skipCheck = {{skipCheck}};
+            const skipCheck = {{{skipCheck}}};
             if(skipCheck) continue;
         {{/hasContinue}}
 
-        const validate = {{returnStatement}};
+        const validate = {{{returnStatement}}};
         if(!validate){
-            return {
+            return [{
                 valid: false,
                 errorCode: "{{errorCode}}",
-                description: "{{errorDescription}}"
-            }
+                description: "{{{errorDescription}}}"
+            }]
         }
     }
-    return { valid: true};
+    return [{valid: true}];
 }
