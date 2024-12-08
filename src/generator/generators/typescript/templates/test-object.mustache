@@ -7,7 +7,7 @@ function {{name}}(payload: any,externalData = {}){
         {{/variables}}
         
         {{#hasContinue}}
-            const skipCheck = {{{skipCheck}}};
+            const skipCheck = {{{skipCheckStatement}}};
             if(skipCheck) continue;
         {{/hasContinue}}
 

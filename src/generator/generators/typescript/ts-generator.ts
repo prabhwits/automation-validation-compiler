@@ -1,13 +1,14 @@
 import { readFileSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { ConfigSyntax, TestObjectSyntax } from "../../../constants/syntax.js";
+import { TestObjectSyntax } from "../../../constants/syntax.js";
 import { CodeGenerator } from "../classes/abstract-generator.js";
 import Mustache from "mustache";
 import { markdownMessageGenerator } from "../markdown-message-generator.js";
 import { getVariablesFromTest as extractVariablesFromText } from "../../../utils/general-utils/test-object-utils.js";
 import { ConfigVariable, TestObject } from "../../../types/config-types.js";
 import { ConvertArrayToString } from "../../../utils/general-utils/string-utils.js";
+import { compileInputToTs } from "./ts-ast.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,7 +36,12 @@ export class TypescriptGenerator extends CodeGenerator {
 			scopePath: testObject[TestObjectSyntax.Scope] ?? "$",
 			variables: this.createVariablesCode(testObject),
 			hasContinue: testObject[TestObjectSyntax.Continue] ? true : false,
-			returnStatement: testObject[TestObjectSyntax.Return] as string,
+			skipCheckStatement: testObject[TestObjectSyntax.Continue]
+				? compileInputToTs(testObject[TestObjectSyntax.Continue])
+				: undefined,
+			returnStatement: compileInputToTs(
+				testObject[TestObjectSyntax.Return] as string
+			),
 			errorCode: testObject[TestObjectSyntax.ErrorCode] ?? 30000,
 			errorDescription: this.CreateErrorMarkdown(testObject, skipList),
 		};
