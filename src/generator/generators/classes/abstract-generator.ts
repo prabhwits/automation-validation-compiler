@@ -1,4 +1,5 @@
 import { ValidationConfig } from "../../../types/config-types";
+import { ErrorDefinition } from "../../../types/error-codes";
 
 /*
     1. generate code for session_data 
@@ -11,10 +12,18 @@ import { ValidationConfig } from "../../../types/config-types";
 */
 export abstract class CodeGenerator {
 	validationConfig: ValidationConfig;
-	constructor(validationConfig: ValidationConfig) {
+	rootPath: string;
+	errorCodes: ErrorDefinition[];
+	constructor(
+		validationConfig: ValidationConfig,
+		errorCodes: ErrorDefinition[],
+		rootPath = "./"
+	) {
 		this.validationConfig = validationConfig;
+		this.rootPath = rootPath;
+		this.errorCodes = errorCodes;
 	}
-	abstract generateSessionDataCode(): Promise<string>;
-	abstract generateValidationCode(): Promise<string>;
+	abstract generateSessionDataCode(): Promise<void>;
+	abstract generateValidationCode(): Promise<void>;
 	abstract generateCode(): Promise<void>;
 }

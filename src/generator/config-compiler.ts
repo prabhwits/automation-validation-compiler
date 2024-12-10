@@ -6,8 +6,9 @@ import { ErrorDefinition } from "../types/error-codes.js";
 import { ValidationConfig } from "../types/config-types.js";
 import logger from "../utils/logger.js";
 import { SupportedLanguages } from "../types/compiler-types.js";
-import { ConfigValidator } from "./validators/config-validator.js";
+
 import { TypescriptGenerator } from "./generators/typescript/ts-generator.js";
+import { ConfigValidator } from "./validators/config-validator.js";
 
 type CodeGeneratorConfig = {
 	removeRequiredfromSchema: boolean;
@@ -75,9 +76,11 @@ export class ConfigCompiler {
 		// Generate code based on the language
 		switch (this.language) {
 			case SupportedLanguages.Typescript:
-				await new TypescriptGenerator(valConfig).generateTestFunction(
-					valConfig._TESTS_.init[0]
-				);
+				await new TypescriptGenerator(
+					valConfig,
+					this.errorDefinitions ?? [],
+					"./testing"
+				).generateCode();
 				break;
 			default:
 				throw new Error("Language not supported");

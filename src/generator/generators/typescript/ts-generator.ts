@@ -1,36 +1,107 @@
-import { readFileSync } from "fs";
+import { readFileSync, write } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { TestObjectSyntax } from "../../../constants/syntax.js";
-import { CodeGenerator } from "../classes/abstract-generator.js";
-import Mustache from "mustache";
+import { ConfigSyntax, TestObjectSyntax } from "../../../constants/syntax.js";
+import Mustache, { name } from "mustache";
 import { markdownMessageGenerator } from "../markdown-message-generator.js";
 import { getVariablesFromTest as extractVariablesFromText } from "../../../utils/general-utils/test-object-utils.js";
 import { ConfigVariable, TestObject } from "../../../types/config-types.js";
 import { ConvertArrayToString } from "../../../utils/general-utils/string-utils.js";
 import { compileInputToTs } from "./ts-ast.js";
+import { CodeGenerator } from "../classes/abstract-generator.js";
+import { writeAndFormatCode } from "../../../utils/fs-utils.js";
+import logger from "../../../utils/logger.js";
+import { ErrorDefinition } from "../../../types/error-codes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export class TypescriptGenerator extends CodeGenerator {
-	generateSessionDataCode(): Promise<string> {
+	generateSessionDataCode = async () => {
 		throw new Error("Method not implemented.");
-	}
-	generateValidationCode(): Promise<string> {
-		throw new Error("Method not implemented.");
-	}
-	generateCode(): Promise<void> {
-		throw new Error("Method not implemented.");
-	}
+	};
+	generateValidationCode = async () => {
+		const testConfig = this.validationConfig[ConfigSyntax.Tests];
+		for (const key in testConfig) {
+			const testObjects = testConfig[key];
+			const betaConfig = {
+				[TestObjectSyntax.Name]: key,
+				[TestObjectSyntax.Return]: testObjects,
+			};
+			const testFunction = await this.generateTestFunction(betaConfig);
+			const apiTestTemplate = readFileSync(
+				path.resolve(__dirname, "./templates/api-test.mustache"),
+				"utf-8"
+			);
+			const finalCode = Mustache.render(apiTestTemplate, {
+				functionCode: testFunction.code,
+			});
+			writeAndFormatCode(
+				this.rootPath,
+				`./api-tests/${key}.ts`,
+				finalCode,
+				"typescript"
+			);
+		}
+	};
+	generateCode = async () => {
+		const jsonPathUtilsCode = readFileSync(
+			path.resolve(__dirname, "./templates/json-path-utils.ts"),
+			"utf-8"
+		);
+		const validtionUtils = readFileSync(
+			path.resolve(__dirname, "./templates/validation-utils.ts"),
+			"utf-8"
+		);
+		const typesTemplate = readFileSync(
+			path.resolve(__dirname, "./templates/test-config.mustache"),
+			"utf-8"
+		);
+
+		const typesCode = Mustache.render(typesTemplate, {
+			externalData: this.getExternalKeys(),
+		});
+		writeAndFormatCode(
+			this.rootPath,
+			"./utils/json-path-utils.ts",
+			jsonPathUtilsCode,
+			"typescript"
+		);
+		writeAndFormatCode(
+			this.rootPath,
+			"./utils/validation-utils.ts",
+			validtionUtils,
+			"typescript"
+		);
+		writeAndFormatCode(
+			this.rootPath,
+			"./types/test-config.ts",
+			typesCode,
+			"typescript"
+		);
+		await this.generateValidationCode();
+		writeAndFormatCode(
+			this.rootPath,
+			"error.ts",
+			this.generateErrorFile(this.errorCodes),
+			"typescript"
+		);
+		writeAndFormatCode(
+			this.rootPath,
+			"index.ts",
+			this.generateIndexFile(
+				Object.keys(this.validationConfig[ConfigSyntax.Tests])
+			),
+			"typescript"
+		);
+	};
 
 	generateTestFunction = async (testObject: TestObject) => {
 		const template = readFileSync(
 			path.resolve(__dirname, "./templates/test-object.mustache"),
 			"utf-8"
 		);
-		const skip = testObject[TestObjectSyntax.Continue];
-		const skipList = skip ? [skip] : undefined;
+
 		const view: mustachRequirements = {
 			name: testObject[TestObjectSyntax.Name],
 			scopePath: testObject[TestObjectSyntax.Scope] ?? "$",
@@ -39,11 +110,7 @@ export class TypescriptGenerator extends CodeGenerator {
 			skipCheckStatement: testObject[TestObjectSyntax.Continue]
 				? compileInputToTs(testObject[TestObjectSyntax.Continue])
 				: undefined,
-			returnStatement: compileInputToTs(
-				testObject[TestObjectSyntax.Return] as string
-			),
-			errorCode: testObject[TestObjectSyntax.ErrorCode] ?? 30000,
-			errorDescription: this.CreateErrorMarkdown(testObject, skipList),
+			validationCode: await this.createValidationLogicCode(testObject),
 		};
 		return {
 			funcName: testObject[TestObjectSyntax.Name],
@@ -79,6 +146,114 @@ export class TypescriptGenerator extends CodeGenerator {
 		}
 		return variables;
 	}
+
+	private createValidationLogicCode = async (testObject: TestObject) => {
+		const template = readFileSync(
+			path.resolve(__dirname, "./templates/validation-code.mustache"),
+			"utf-8"
+		);
+		const skip = testObject[TestObjectSyntax.Continue];
+		const skipList = skip ? [skip] : undefined;
+		if (typeof testObject[TestObjectSyntax.Return] === "string") {
+			const returnStatement = compileInputToTs(
+				testObject[TestObjectSyntax.Return]
+			);
+			return Mustache.render(template, {
+				isNested: false,
+				returnStatement: returnStatement,
+				errorCode: testObject[TestObjectSyntax.ErrorCode] ?? 30000,
+				errorDescription: this.CreateErrorMarkdown(testObject, skipList),
+			});
+		} else {
+			const subObjects = testObject[TestObjectSyntax.Return];
+			const functionCodes: {
+				funcName: string;
+				code: string;
+			}[] = [];
+			for (const subObject of subObjects) {
+				const func = await this.generateTestFunction(subObject);
+				functionCodes.push(func);
+			}
+			const names = functionCodes.map((f) => {
+				return { name: f.funcName };
+			});
+			logger.debug(JSON.stringify(names));
+			return Mustache.render(template, {
+				isNested: true,
+				nestedFunctions: functionCodes.map((f) => f.code).join("\n"),
+				names: names,
+			});
+		}
+	};
+
+	private generateErrorFile(errors: ErrorDefinition[]): string {
+		console.log(errors);
+		const allCodes = errors.map((error) => error.code);
+		if (allCodes.length !== new Set(allCodes).size) {
+			throw new Error("Duplicate error codes found");
+		}
+		errors.push({
+			code: 20006,
+			Description: "Invalid response does not meet API contract specifications",
+		});
+		errors.push({
+			code: 30000,
+			Description: "Invalid request does not meet API contract specifications",
+		});
+		const errorConstant = `
+	const errors = [
+		${errors.map((error) => `{code: ${error.code}, message: "${error.Description}"}`).join(",\n")}
+	];
+		`;
+		const errorFunction = `export function getError(code: number) {
+		const error = errors.find((error) => error.code === code);
+		if (!error) {
+			throw new Error(\`Error code \${code} not found\`);
+		}
+		return error;
+		}`;
+		return `${errorConstant}\n${errorFunction}`;
+	}
+	private getExternalKeys() {
+		const apis = Object.keys(this.validationConfig[ConfigSyntax.SessionData]);
+		const result: { name: string }[] = [];
+		for (const api of apis) {
+			const keys = Object.keys(
+				this.validationConfig[ConfigSyntax.SessionData][api]
+			);
+			for (const key of keys) {
+				result.push({ name: key });
+			}
+		}
+		return result;
+	}
+	private generateIndexFile(apis: string[]) {
+		const importsCode = apis
+			.map((api) => `import ${api} from "./api-tests/${api}";`)
+			.join("\n");
+		const masterFunction = `
+				export function performL1Validations(action: string, payload: any,allErrors = false, externalData = {}) {
+					switch (action) {
+						${apis
+							.map(
+								(api) => `case "${api}": return ${api}({
+				payload: payload,
+				externalData: externalData,
+				config: {
+					runAllValidations: allErrors,
+				},
+			});`
+							)
+							.join("\n")}
+						default:
+							throw new Error("Action not found");
+					}
+			}`;
+		return `
+				${importsCode}
+				${masterFunction}
+			`;
+	}
 }
 
 interface mustachRequirements {
@@ -90,7 +265,5 @@ interface mustachRequirements {
 	}[];
 	hasContinue: boolean;
 	skipCheckStatement?: string;
-	returnStatement: string;
-	errorCode: number;
-	errorDescription: string;
+	validationCode: string;
 }

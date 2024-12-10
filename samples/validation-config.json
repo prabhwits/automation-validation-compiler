@@ -97,5 +97,9 @@
 			}
 		]
 	},
-	"_SESSION_DATA_": {}
+	"_SESSION_DATA_": {
+		"search": {
+			"transaction_id": "$.context.transaction_id"
+		}
+	}
 }

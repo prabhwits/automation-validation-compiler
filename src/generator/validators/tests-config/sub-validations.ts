@@ -113,6 +113,13 @@ export class ErrorCodeValidator extends TestObjectValidator {
 		if (!this.targetObject[TestObjectSyntax.ErrorCode]) {
 			return;
 		}
+
+		if (typeof this.targetObject[TestObjectSyntax.Return] !== "string") {
+			throw new Error(
+				`You can't define a ${TestObjectSyntax.ErrorCode} with nested ${TestObjectSyntax.Return} at path ${this.validtionPath}`
+			);
+		}
+
 		if (typeof this.targetObject[TestObjectSyntax.ErrorCode] !== "number") {
 			throw new Error(
 				`${TestObjectSyntax.ErrorCode} should be a number at path ${this.validtionPath}`

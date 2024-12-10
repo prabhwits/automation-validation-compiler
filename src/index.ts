@@ -3,11 +3,12 @@ import { readFileSync, writeFileSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { SupportedLanguages } from "./types/compiler-types.js";
-import { ConfigCompiler } from "./generator/config-compiler.js";
+
 import logger from "./utils/logger.js";
 import { parseReturnInput } from "./services/return-complier/parser.js";
 import { AstBuilder, buildAst } from "./services/return-complier/ast.js";
 import { CompileToMarkdown } from "./services/return-complier/ast-functions/compile-to-markdown.js";
+import { ConfigCompiler } from "./generator/config-compiler.js";
 
 // Get __dirname equivalent
 const __filename = fileURLToPath(import.meta.url);

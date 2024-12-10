@@ -1,7 +1,7 @@
-function {{name}}(payload: any,externalData = {}){
-    const scope = payload.getJsonPath(payload,"{{{scopePath}}}");
+function {{name}}(input: validationInput): validationOutput {
+    const scope = payloadUtils.getJsonPath(input.payload,"{{{scopePath}}}");
     for(const testObj of scope){
-        testObj._EXTERNAL = externalData;
+        testObj._EXTERNAL = input.externalData;
         {{#variables}}
         const {{name}} = {{{value}}}
         {{/variables}}
@@ -11,14 +11,8 @@ function {{name}}(payload: any,externalData = {}){
             if(skipCheck) continue;
         {{/hasContinue}}
 
-        const validate = {{{returnStatement}}};
-        if(!validate){
-            return [{
-                valid: false,
-                errorCode: "{{errorCode}}",
-                description: "{{{errorDescription}}}"
-            }]
-        }
+        {{{validationCode}}}
+        
     }
     return [{valid: true}];
 }

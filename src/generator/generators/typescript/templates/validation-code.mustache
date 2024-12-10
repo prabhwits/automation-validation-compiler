@@ -1,0 +1,36 @@
+
+{{#isNested}}
+
+{{{nestedFunctions}}}
+
+const testFunctions: testFunctionArray = [
+    {{#names}}
+    {{name}},
+    {{/names}}
+];
+
+let invalidResults: validationOutput = [];
+for (const fn of testFunctions) {
+    const subResult = fn(input).filter(r => !r.valid);
+    invalidResults = [...invalidResults, ...subResult];
+    if(!input.config.runAllValidations && invalidResults.length > 0) {
+        return invalidResults;
+    }
+}
+if(invalidResults.length > 0) {
+    return invalidResults;
+}
+
+{{/isNested}}
+
+{{^isNested}}
+const validate = {{{returnStatement}}}
+
+if(!validate){
+    return [{
+        valid: false,
+        errorCode: {{errorCode}},
+        description: `{{{errorDescription}}}`
+    }]
+}
+{{/isNested}}
