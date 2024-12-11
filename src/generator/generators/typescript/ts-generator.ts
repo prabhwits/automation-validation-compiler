@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { ConfigSyntax, TestObjectSyntax } from "../../../constants/syntax.js";
 import Mustache from "mustache";
-import { markdownMessageGenerator } from "../markdown-message-generator.js";
+import { markdownMessageGenerator } from "../documentation/markdown-message-generator.js";
 import { getVariablesFromTest as extractVariablesFromText } from "../../../utils/general-utils/test-object-utils.js";
 import { ConfigVariable, TestObject } from "../../../types/config-types.js";
 import { ConvertArrayToString } from "../../../utils/general-utils/string-utils.js";
@@ -12,6 +12,7 @@ import { CodeGenerator } from "../classes/abstract-generator.js";
 import { writeAndFormatCode } from "../../../utils/fs-utils.js";
 import logger from "../../../utils/logger.js";
 import { ErrorDefinition } from "../../../types/error-codes.js";
+import { MarkdownDocGenerator } from "../documentation/md-generator.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,7 +37,7 @@ export class TypescriptGenerator extends CodeGenerator {
 			const finalCode = Mustache.render(apiTestTemplate, {
 				functionCode: testFunction.code,
 			});
-			writeAndFormatCode(
+			await writeAndFormatCode(
 				this.rootPath,
 				`./api-tests/${key}.ts`,
 				finalCode,
@@ -80,13 +81,13 @@ export class TypescriptGenerator extends CodeGenerator {
 			"typescript"
 		);
 		await this.generateValidationCode();
-		writeAndFormatCode(
+		await writeAndFormatCode(
 			this.rootPath,
 			"error.ts",
 			this.generateErrorFile(this.errorCodes),
 			"typescript"
 		);
-		writeAndFormatCode(
+		await writeAndFormatCode(
 			this.rootPath,
 			"index.ts",
 			this.generateIndexFile(
@@ -94,6 +95,11 @@ export class TypescriptGenerator extends CodeGenerator {
 			),
 			"typescript"
 		);
+		await new MarkdownDocGenerator(
+			this.validationConfig,
+			this.errorCodes,
+			this.rootPath
+		).generateCode();
 	};
 
 	generateTestFunction = async (testObject: TestObject) => {

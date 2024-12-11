@@ -42,6 +42,13 @@ export const AreUnique = createToken({
 	label: "are unique",
 });
 
+export const ShouldExist = createToken({
+	name: "ShouldExist",
+	pattern: /should exist/i,
+	categories: CustomUniaryFunctions,
+	label: "should exist",
+});
+
 export const FollowRegex = createToken({
 	name: "FollowRegex",
 	pattern: /follow regex/i,
@@ -124,6 +131,7 @@ export const allTokens = [
 	OrOperator,
 	NotOperator,
 	AreUnique,
+	ShouldExist,
 	AllIn,
 	AnyIn,
 	EqualTo,

@@ -56,3 +56,11 @@ export function ConvertArrayToString(arr: any[]) {
 	vals = vals.replace(/"/g, `"`);
 	return `[${vals}]`;
 }
+
+export function addTabToMarkdown(markdown: string) {
+	// Split the markdown into lines, add a tab to each line, and rejoin
+	return markdown
+		.split("\n") // Split the input into individual lines
+		.map((line) => `\t${line}`) // Add a tab character at the beginning of each line
+		.join("\n"); // Rejoin the lines into a single string
+}

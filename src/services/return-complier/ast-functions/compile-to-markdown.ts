@@ -16,11 +16,14 @@ import {
 	GreaterThan,
 	LessThan,
 	NoneIn,
+	ShouldExist,
 } from "../tokens.js";
 
 const uniaryMessages = {
 	[AreUnique.LABEL ?? "are unique"]: (variable: string, forNot: boolean) =>
-		`{{{${variable}}}} must${forNot ? "**not**" : ""} be unique`,
+		`all values of {{{${variable}}}} must${forNot ? "**not**" : ""} be unique`,
+	[ShouldExist.LABEL ?? "should exist"]: (variable: string, forNot: boolean) =>
+		`{{{${variable}}}} must${forNot ? "**not**" : ""} exist in the payload`,
 };
 const binaryMessages = {
 	[AllIn.LABEL ?? "all in"]: (lhs: string, rhs: string, forNot: boolean) =>

@@ -17,10 +17,12 @@ import {
 	GreaterThan,
 	LessThan,
 	NoneIn,
+	ShouldExist,
 } from "../../../services/return-complier/tokens.js";
 
 const uniaryFunction = {
 	[AreUnique.LABEL ?? "are unique"]: "areUnique",
+	[ShouldExist.LABEL ?? "should exist"]: "shouldExist",
 };
 const binaryFunction = {
 	[AllIn.LABEL ?? "all in"]: "allIn",

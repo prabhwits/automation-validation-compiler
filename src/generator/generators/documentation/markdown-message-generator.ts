@@ -1,12 +1,12 @@
-import { CompileToMarkdown } from "../../services/return-complier/ast-functions/compile-to-markdown.js";
-import { buildAstFromInput } from "../../services/return-complier/combined.js";
-import { TestObject } from "../../types/config-types.js";
+import { CompileToMarkdown } from "../../../services/return-complier/ast-functions/compile-to-markdown.js";
+import { buildAstFromInput } from "../../../services/return-complier/combined.js";
+import { TestObject } from "../../../types/config-types.js";
 import Mustache from "mustache";
 import {
 	addBlockquoteToMarkdown,
+	addTabToMarkdown,
 	ConvertArrayToStringsInTestObject,
-} from "../../utils/general-utils/string-utils.js";
-import logger from "../../utils/logger.js";
+} from "../../../utils/general-utils/string-utils.js";
 
 export function markdownMessageGenerator(
 	returnInput: string,
@@ -35,8 +35,8 @@ export function markdownMessageGenerator(
 			skipMarkdown += `\n\n${finalSkip}`;
 			index++;
 		}
-		const blockSkip = addBlockquoteToMarkdown(skipMarkdown);
-		finalReturn += `\n###\n${blockSkip}`;
+		const blockSkip = addTabToMarkdown(addBlockquoteToMarkdown(skipMarkdown));
+		finalReturn += `\n\n${blockSkip}`;
 	}
 
 	return finalReturn;

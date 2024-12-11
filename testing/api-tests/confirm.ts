@@ -11,6 +11,47 @@ export default function confirm(input: validationInput): validationOutput {
     for (const testObj of scope) {
         testObj._EXTERNAL = input.externalData;
 
+        function payments_test(input: validationInput): validationOutput {
+            const scope = payloadUtils.getJsonPath(
+                input.payload,
+                "$.message.order.payments[*]",
+            );
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const status = payloadUtils.getJsonPath(testObj, "$.status");
+                const enumList = ["PAID"];
+                const transId = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.params.transaction_id",
+                );
+                const nulls = ["null"];
+
+                const skipCheck = validations.noneIn(status, enumList);
+                if (skipCheck) continue;
+
+                const validate =
+                    validations.noneIn(transId, nulls) &&
+                    validations.allIn(status, enumList);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: all of the following sub conditions must be met:
+
+  - **condition A.1**: no element of $.params.transaction_id must be in ["null"]
+  - **condition A.2**: every element of $.status must be in ["PAID"]
+
+	> Note: **Condition A** can be skipped if the following conditions are met:
+	>
+	> - **condition B**: no element of $.status must be in ["PAID"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
         function validate_attribute_1(
             input: validationInput,
         ): validationOutput {
@@ -911,6 +952,7 @@ export default function confirm(input: validationInput): validationOutput {
         }
 
         const testFunctions: testFunctionArray = [
+            payments_test,
             validate_attribute_1,
             validate_attribute_2,
             validate_attribute_3,
