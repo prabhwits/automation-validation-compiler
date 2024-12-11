@@ -2,7 +2,7 @@ import { readFileSync, write } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { ConfigSyntax, TestObjectSyntax } from "../../../constants/syntax.js";
-import Mustache, { name } from "mustache";
+import Mustache from "mustache";
 import { markdownMessageGenerator } from "../markdown-message-generator.js";
 import { getVariablesFromTest as extractVariablesFromText } from "../../../utils/general-utils/test-object-utils.js";
 import { ConfigVariable, TestObject } from "../../../types/config-types.js";

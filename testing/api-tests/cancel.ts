@@ -6,7 +6,7 @@ import {
     validationOutput,
 } from "../types/test-config";
 
-export default function init(input: validationInput): validationOutput {
+export default function cancel(input: validationInput): validationOutput {
     const scope = payloadUtils.getJsonPath(input.payload, "$");
     for (const testObj of scope) {
         testObj._EXTERNAL = input.externalData;
@@ -354,7 +354,7 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.items[*].id",
+                    "$.message.order_id",
                 );
                 const nulls = ["null"];
 
@@ -365,7 +365,7 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.items[*].id must be in ["null"]`,
+                            description: `- **condition A**: no element of $.message.order_id must be in ["null"]`,
                         },
                     ];
                 }
@@ -380,7 +380,7 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.items[*].quantity.selected.count",
+                    "$.message.cancellation_reason_id",
                 );
                 const nulls = ["null"];
 
@@ -391,7 +391,7 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.items[*].quantity.selected.count must be in ["null"]`,
+                            description: `- **condition A**: no element of $.message.cancellation_reason_id must be in ["null"]`,
                         },
                     ];
                 }
@@ -406,7 +406,7 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.provider.id",
+                    "$.message.descriptor.code",
                 );
                 const nulls = ["null"];
 
@@ -417,7 +417,7 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.provider.id must be in ["null"]`,
+                            description: `- **condition A**: no element of $.message.descriptor.code must be in ["null"]`,
                         },
                     ];
                 }
@@ -432,7 +432,7 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.payments[*].collected_by",
+                    "$.message.descriptor.name",
                 );
                 const nulls = ["null"];
 
@@ -443,59 +443,7 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.payments[*].collected_by must be in ["null"]`,
-                        },
-                    ];
-                }
-            }
-            return [{ valid: true }];
-        }
-        function validate_attribute_18(
-            input: validationInput,
-        ): validationOutput {
-            const scope = payloadUtils.getJsonPath(input.payload, "$");
-            for (const testObj of scope) {
-                testObj._EXTERNAL = input.externalData;
-                const attr = payloadUtils.getJsonPath(
-                    testObj,
-                    "$.message.order.payments[*].status",
-                );
-                const nulls = ["null"];
-
-                const validate = validations.noneIn(attr, nulls);
-
-                if (!validate) {
-                    return [
-                        {
-                            valid: false,
-                            errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.payments[*].status must be in ["null"]`,
-                        },
-                    ];
-                }
-            }
-            return [{ valid: true }];
-        }
-        function validate_attribute_19(
-            input: validationInput,
-        ): validationOutput {
-            const scope = payloadUtils.getJsonPath(input.payload, "$");
-            for (const testObj of scope) {
-                testObj._EXTERNAL = input.externalData;
-                const attr = payloadUtils.getJsonPath(
-                    testObj,
-                    "$.message.order.payments[*].type",
-                );
-                const nulls = ["null"];
-
-                const validate = validations.noneIn(attr, nulls);
-
-                if (!validate) {
-                    return [
-                        {
-                            valid: false,
-                            errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.payments[*].type must be in ["null"]`,
+                            description: `- **condition A**: no element of $.message.descriptor.name must be in ["null"]`,
                         },
                     ];
                 }
@@ -506,7 +454,7 @@ export default function init(input: validationInput): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
             for (const testObj of scope) {
                 testObj._EXTERNAL = input.externalData;
-                const enumList = ["init"];
+                const enumList = ["cancel"];
                 const enumPath = payloadUtils.getJsonPath(
                     testObj,
                     "$.context.action",
@@ -519,7 +467,7 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: every element of $.context.action must be in ["init"]`,
+                            description: `- **condition A**: every element of $.context.action must be in ["cancel"]`,
                         },
                     ];
                 }
@@ -598,14 +546,14 @@ export default function init(input: validationInput): validationOutput {
             }
             return [{ valid: true }];
         }
-        function validate_enum_8(input: validationInput): validationOutput {
+        function validate_enum_5(input: validationInput): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
             for (const testObj of scope) {
                 testObj._EXTERNAL = input.externalData;
-                const enumList = ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"];
+                const enumList = ["SOFT-CANCEL", "CONFIRM-CANCEL"];
                 const enumPath = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.fulfillments[*].type",
+                    "$.message.descriptor.code",
                 );
 
                 const validate = validations.allIn(enumPath, enumList);
@@ -615,61 +563,7 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: every element of $.message.order.fulfillments[*].type must be in ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"]`,
-                        },
-                    ];
-                }
-            }
-            return [{ valid: true }];
-        }
-        function validate_enum_12(input: validationInput): validationOutput {
-            const scope = payloadUtils.getJsonPath(input.payload, "$");
-            for (const testObj of scope) {
-                testObj._EXTERNAL = input.externalData;
-                const enumList = ["INACTIVE", "ACTIVE"];
-                const enumPath = payloadUtils.getJsonPath(
-                    testObj,
-                    "$.message.order.fulfillments[*].state.descriptor.code",
-                );
-
-                const validate = validations.allIn(enumPath, enumList);
-
-                if (!validate) {
-                    return [
-                        {
-                            valid: false,
-                            errorCode: 30000,
-                            description: `- **condition A**: every element of $.message.order.fulfillments[*].state.descriptor.code must be in ["INACTIVE", "ACTIVE"]`,
-                        },
-                    ];
-                }
-            }
-            return [{ valid: true }];
-        }
-        function validate_enum_13(input: validationInput): validationOutput {
-            const scope = payloadUtils.getJsonPath(input.payload, "$");
-            for (const testObj of scope) {
-                testObj._EXTERNAL = input.externalData;
-                const enumList = [
-                    "BASE_PRICE",
-                    "REFUND",
-                    "CANCELLATION_CHARGES",
-                    "OFFER",
-                    "TOLL",
-                ];
-                const enumPath = payloadUtils.getJsonPath(
-                    testObj,
-                    "$.message.order.quote.breakup[*].title",
-                );
-
-                const validate = validations.allIn(enumPath, enumList);
-
-                if (!validate) {
-                    return [
-                        {
-                            valid: false,
-                            errorCode: 30000,
-                            description: `- **condition A**: every element of $.message.order.quote.breakup[*].title must be in ["BASE_PRICE", "REFUND", "CANCELLATION_CHARGES", "OFFER", "TOLL"]`,
+                            description: `- **condition A**: every element of $.message.descriptor.code must be in ["SOFT-CANCEL", "CONFIRM-CANCEL"]`,
                         },
                     ];
                 }
@@ -695,15 +589,11 @@ export default function init(input: validationInput): validationOutput {
             validate_attribute_15,
             validate_attribute_16,
             validate_attribute_17,
-            validate_attribute_18,
-            validate_attribute_19,
             validate_enum_1,
             validate_enum_2,
             validate_enum_3,
             validate_enum_4,
-            validate_enum_8,
-            validate_enum_12,
-            validate_enum_13,
+            validate_enum_5,
         ];
 
         let invalidResults: validationOutput = [];

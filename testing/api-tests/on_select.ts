@@ -6,7 +6,7 @@ import {
     validationOutput,
 } from "../types/test-config";
 
-export default function init(input: validationInput): validationOutput {
+export default function on_select(input: validationInput): validationOutput {
     const scope = payloadUtils.getJsonPath(input.payload, "$");
     for (const testObj of scope) {
         testObj._EXTERNAL = input.externalData;
@@ -380,6 +380,84 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
+                    "$.message.order.items[*].descriptor.code",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.items[*].descriptor.code must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_16(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.items[*].price.currency",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.items[*].price.currency must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_17(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.items[*].price.value",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.items[*].price.value must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_18(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
                     "$.message.order.items[*].quantity.selected.count",
                 );
                 const nulls = ["null"];
@@ -398,7 +476,85 @@ export default function init(input: validationInput): validationOutput {
             }
             return [{ valid: true }];
         }
-        function validate_attribute_16(
+        function validate_attribute_19(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.items[*].fulfillment_ids[*]",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.items[*].fulfillment_ids[*] must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_20(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.items[*].time.label",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.items[*].time.label must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_21(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.items[*].time.duration",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.items[*].time.duration must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_22(
             input: validationInput,
         ): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
@@ -424,7 +580,7 @@ export default function init(input: validationInput): validationOutput {
             }
             return [{ valid: true }];
         }
-        function validate_attribute_17(
+        function validate_attribute_23(
             input: validationInput,
         ): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
@@ -432,7 +588,7 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.payments[*].collected_by",
+                    "$.message.order.provider.descriptor.name",
                 );
                 const nulls = ["null"];
 
@@ -443,14 +599,14 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.payments[*].collected_by must be in ["null"]`,
+                            description: `- **condition A**: no element of $.message.order.provider.descriptor.name must be in ["null"]`,
                         },
                     ];
                 }
             }
             return [{ valid: true }];
         }
-        function validate_attribute_18(
+        function validate_attribute_24(
             input: validationInput,
         ): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
@@ -458,7 +614,7 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.payments[*].status",
+                    "$.message.order.fulfillments[*].id",
                 );
                 const nulls = ["null"];
 
@@ -469,14 +625,14 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.payments[*].status must be in ["null"]`,
+                            description: `- **condition A**: no element of $.message.order.fulfillments[*].id must be in ["null"]`,
                         },
                     ];
                 }
             }
             return [{ valid: true }];
         }
-        function validate_attribute_19(
+        function validate_attribute_25(
             input: validationInput,
         ): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
@@ -484,7 +640,7 @@ export default function init(input: validationInput): validationOutput {
                 testObj._EXTERNAL = input.externalData;
                 const attr = payloadUtils.getJsonPath(
                     testObj,
-                    "$.message.order.payments[*].type",
+                    "$.message.order.quote.price.value",
                 );
                 const nulls = ["null"];
 
@@ -495,7 +651,293 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: no element of $.message.order.payments[*].type must be in ["null"]`,
+                            description: `- **condition A**: no element of $.message.order.quote.price.value must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_26(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.quote.price.currency",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.quote.price.currency must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_27(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.quote.breakup[*].title",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.quote.breakup[*].title must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_28(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.items[*].category_ids[*]",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.items[*].category_ids[*] must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_29(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.provider.time.range.start",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.provider.time.range.start must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_30(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.provider.time.range.end",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.provider.time.range.end must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_31(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.fulfillments[*].type",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.fulfillments[*].type must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_32(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.quote.breakup[*].item.price.currency",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.quote.breakup[*].item.price.currency must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_33(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.quote.breakup[*].item.price.value",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.quote.breakup[*].item.price.value must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_34(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.quote.breakup[*].item.quantity.selected.count",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.quote.breakup[*].item.quantity.selected.count must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_35(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.cancellation_terms[*].external_ref.url",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.cancellation_terms[*].external_ref.url must be in ["null"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_attribute_36(
+            input: validationInput,
+        ): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const attr = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.cancellation_terms[*].external_ref.mimetype",
+                );
+                const nulls = ["null"];
+
+                const validate = validations.noneIn(attr, nulls);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: no element of $.message.order.cancellation_terms[*].external_ref.mimetype must be in ["null"]`,
                         },
                     ];
                 }
@@ -506,7 +948,7 @@ export default function init(input: validationInput): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
             for (const testObj of scope) {
                 testObj._EXTERNAL = input.externalData;
-                const enumList = ["init"];
+                const enumList = ["on_select"];
                 const enumPath = payloadUtils.getJsonPath(
                     testObj,
                     "$.context.action",
@@ -519,7 +961,7 @@ export default function init(input: validationInput): validationOutput {
                         {
                             valid: false,
                             errorCode: 30000,
-                            description: `- **condition A**: every element of $.context.action must be in ["init"]`,
+                            description: `- **condition A**: every element of $.context.action must be in ["on_select"]`,
                         },
                     ];
                 }
@@ -550,30 +992,6 @@ export default function init(input: validationInput): validationOutput {
             }
             return [{ valid: true }];
         }
-        function validate_enum_3(input: validationInput): validationOutput {
-            const scope = payloadUtils.getJsonPath(input.payload, "$");
-            for (const testObj of scope) {
-                testObj._EXTERNAL = input.externalData;
-                const enumList = ["std:080"];
-                const enumPath = payloadUtils.getJsonPath(
-                    testObj,
-                    "$.context.location.city.code",
-                );
-
-                const validate = validations.allIn(enumPath, enumList);
-
-                if (!validate) {
-                    return [
-                        {
-                            valid: false,
-                            errorCode: 30000,
-                            description: `- **condition A**: every element of $.context.location.city.code must be in ["std:080"]`,
-                        },
-                    ];
-                }
-            }
-            return [{ valid: true }];
-        }
         function validate_enum_4(input: validationInput): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
             for (const testObj of scope) {
@@ -598,6 +1016,54 @@ export default function init(input: validationInput): validationOutput {
             }
             return [{ valid: true }];
         }
+        function validate_enum_5(input: validationInput): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const enumList = ["SJT", "SFSJT", "RJT", "PASS"];
+                const enumPath = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.items[*].descriptor.code",
+                );
+
+                const validate = validations.allIn(enumPath, enumList);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: every element of $.message.order.items[*].descriptor.code must be in ["SJT", "SFSJT", "RJT", "PASS"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_enum_6(input: validationInput): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const enumList = ["METRO"];
+                const enumPath = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.fulfillments[*].vehicle.category",
+                );
+
+                const validate = validations.allIn(enumPath, enumList);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: every element of $.message.order.fulfillments[*].vehicle.category must be in ["METRO"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
         function validate_enum_8(input: validationInput): validationOutput {
             const scope = payloadUtils.getJsonPath(input.payload, "$");
             for (const testObj of scope) {
@@ -616,6 +1082,83 @@ export default function init(input: validationInput): validationOutput {
                             valid: false,
                             errorCode: 30000,
                             description: `- **condition A**: every element of $.message.order.fulfillments[*].type must be in ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_enum_9(input: validationInput): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const enumList = [
+                    "START",
+                    "END",
+                    "INTERMEDIATE_STOP",
+                    "TRANSIT_STOP",
+                ];
+                const enumPath = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.fulfillments[*].type",
+                );
+
+                const validate = validations.allIn(enumPath, enumList);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: every element of $.message.order.fulfillments[*].type must be in ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_enum_10(input: validationInput): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const enumList = ["QR"];
+                const enumPath = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.fulfillments[*].stops[*].authorization.type",
+                );
+
+                const validate = validations.allIn(enumPath, enumList);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: every element of $.message.order.fulfillments[*].stops[*].authorization.type must be in ["QR"]`,
+                        },
+                    ];
+                }
+            }
+            return [{ valid: true }];
+        }
+        function validate_enum_11(input: validationInput): validationOutput {
+            const scope = payloadUtils.getJsonPath(input.payload, "$");
+            for (const testObj of scope) {
+                testObj._EXTERNAL = input.externalData;
+                const enumList = ["UNCLAIMED", "CLAIMED", "EXPIRED"];
+                const enumPath = payloadUtils.getJsonPath(
+                    testObj,
+                    "$.message.order.fulfillments[*].stops[*].authorization.status",
+                );
+
+                const validate = validations.allIn(enumPath, enumList);
+
+                if (!validate) {
+                    return [
+                        {
+                            valid: false,
+                            errorCode: 30000,
+                            description: `- **condition A**: every element of $.message.order.fulfillments[*].stops[*].authorization.status must be in ["UNCLAIMED", "CLAIMED", "EXPIRED"]`,
                         },
                     ];
                 }
@@ -697,11 +1240,32 @@ export default function init(input: validationInput): validationOutput {
             validate_attribute_17,
             validate_attribute_18,
             validate_attribute_19,
+            validate_attribute_20,
+            validate_attribute_21,
+            validate_attribute_22,
+            validate_attribute_23,
+            validate_attribute_24,
+            validate_attribute_25,
+            validate_attribute_26,
+            validate_attribute_27,
+            validate_attribute_28,
+            validate_attribute_29,
+            validate_attribute_30,
+            validate_attribute_31,
+            validate_attribute_32,
+            validate_attribute_33,
+            validate_attribute_34,
+            validate_attribute_35,
+            validate_attribute_36,
             validate_enum_1,
             validate_enum_2,
-            validate_enum_3,
             validate_enum_4,
+            validate_enum_5,
+            validate_enum_6,
             validate_enum_8,
+            validate_enum_9,
+            validate_enum_10,
+            validate_enum_11,
             validate_enum_12,
             validate_enum_13,
         ];
