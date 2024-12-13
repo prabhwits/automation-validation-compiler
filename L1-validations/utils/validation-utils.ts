@@ -3,8 +3,8 @@ function areUnique(operand: string[]) {
     return valuesSet.size === operand.length;
 }
 
-function shouldExist(operand: string[]) {
-    return noneIn(operand, ["", "null", "undefined"]);
+function arePresent(operand: string[]) {
+    return noneIn(operand, ["", "null", "undefined"]) && operand.length > 0;
 }
 
 function allIn(left: string[], right: string[]) {
@@ -105,7 +105,7 @@ function isISO8601(str: string): boolean {
 
 export default {
     areUnique,
-    shouldExist,
+    arePresent,
     allIn,
     anyIn,
     noneIn,

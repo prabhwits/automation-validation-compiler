@@ -42,11 +42,11 @@ export const AreUnique = createToken({
 	label: "are unique",
 });
 
-export const ShouldExist = createToken({
-	name: "ShouldExist",
-	pattern: /should exist/i,
+export const ArePresent = createToken({
+	name: "ArePresent",
+	pattern: /are present/i,
 	categories: CustomUniaryFunctions,
-	label: "should exist",
+	label: "are present",
 });
 
 export const FollowRegex = createToken({
@@ -98,22 +98,22 @@ export const RParen = createToken({
 	label: ")",
 });
 
-export const BinnaryOperator = createToken({
-	name: "BinnaryOperator",
+export const BinaryOperator = createToken({
+	name: "BinaryOperator",
 	pattern: Lexer.NA,
 });
 
 export const AndOperator = createToken({
 	name: "AndOperator",
 	pattern: /&&/,
-	categories: BinnaryOperator,
+	categories: BinaryOperator,
 	label: "&&",
 });
 
 export const OrOperator = createToken({
 	name: "OrOperator",
 	pattern: /\|\|/,
-	categories: BinnaryOperator,
+	categories: BinaryOperator,
 	label: "||",
 });
 
@@ -131,7 +131,7 @@ export const allTokens = [
 	OrOperator,
 	NotOperator,
 	AreUnique,
-	ShouldExist,
+	ArePresent,
 	AllIn,
 	AnyIn,
 	EqualTo,
@@ -141,7 +141,7 @@ export const allTokens = [
 	NoneIn,
 	CustomUniaryFunctions,
 	CustomBinaryFunctions,
-	BinnaryOperator,
+	BinaryOperator,
 	Identifier,
 ];
 

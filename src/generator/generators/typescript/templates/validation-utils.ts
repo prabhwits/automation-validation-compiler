@@ -3,8 +3,9 @@ function areUnique(operand: string[]) {
 	return valuesSet.size === operand.length;
 }
 
-function shouldExist(operand: string[]) {
-	return noneIn(operand, ["", "null", "undefined"]);
+function arePresent(operand: string[]) {
+
+	return noneIn(operand, ["", "null", "undefined"]) && operand.length > 0;
 }
 
 function allIn(left: string[], right: string[]) {
@@ -28,21 +29,23 @@ function greaterThan(left: string[], right: string[]): boolean {
 	// Check if all elements in an array are ISO 8601 dates
 	const areAllISO = (arr: string[]) => arr.every((v) => isISO8601(v));
 	// Check if all elements in an array are numbers
-	const areAllNumbers = (arr: string[]) => arr.every((v) => !isNaN(Number(v)));
+	const areAllNumbers = (arr: string[]) =>
+		arr.every((v) => !isNaN(Number(v)));
 
 	if (areAllISO(left) && areAllISO(right)) {
 		// Compare ISO 8601 dates
 		const leftDates = left.map((date) => new Date(date).getTime());
 		const rightDates = right.map((date) => new Date(date).getTime());
 		return leftDates.every(
-			(ld, index) => ld > rightDates[index] || index >= rightDates.length
+			(ld, index) => ld > rightDates[index] || index >= rightDates.length,
 		);
 	} else if (areAllNumbers(left) && areAllNumbers(right)) {
 		// Compare numbers
 		const leftNumbers = left.map(Number);
 		const rightNumbers = right.map(Number);
 		return leftNumbers.every(
-			(ln, index) => ln > rightNumbers[index] || index >= rightNumbers.length
+			(ln, index) =>
+				ln > rightNumbers[index] || index >= rightNumbers.length,
 		);
 	}
 
@@ -54,21 +57,23 @@ function lessThan(left: string[], right: string[]): boolean {
 	// Check if all elements in an array are ISO 8601 dates
 	const areAllISO = (arr: string[]) => arr.every((v) => isISO8601(v));
 	// Check if all elements in an array are numbers
-	const areAllNumbers = (arr: string[]) => arr.every((v) => !isNaN(Number(v)));
+	const areAllNumbers = (arr: string[]) =>
+		arr.every((v) => !isNaN(Number(v)));
 
 	if (areAllISO(left) && areAllISO(right)) {
 		// Compare ISO 8601 dates
 		const leftDates = left.map((date) => new Date(date).getTime());
 		const rightDates = right.map((date) => new Date(date).getTime());
 		return leftDates.every(
-			(ld, index) => ld < rightDates[index] || index >= rightDates.length
+			(ld, index) => ld < rightDates[index] || index >= rightDates.length,
 		);
 	} else if (areAllNumbers(left) && areAllNumbers(right)) {
 		// Compare numbers
 		const leftNumbers = left.map(Number);
 		const rightNumbers = right.map(Number);
 		return leftNumbers.every(
-			(ln, index) => ln < rightNumbers[index] || index >= rightNumbers.length
+			(ln, index) =>
+				ln < rightNumbers[index] || index >= rightNumbers.length,
 		);
 	}
 
@@ -101,7 +106,7 @@ function isISO8601(str: string): boolean {
 
 export default {
 	areUnique,
-	shouldExist,
+	arePresent,
 	allIn,
 	anyIn,
 	noneIn,

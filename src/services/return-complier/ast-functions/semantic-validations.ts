@@ -1,6 +1,6 @@
 import {
 	AstNode,
-	BinnaryOperatorNode,
+	BinaryOperatorNode,
 	CustomBinaryFunction,
 	CustomUniaryFunction,
 	IdentifierNode,
@@ -23,10 +23,10 @@ export function checkValidVariables(
 		const returnStatement = ast as ReturnStatementNode;
 		checkValidVariables(returnStatement.expression, validVariables, path);
 	}
-	if (ast.type === "binnaryOperator") {
-		const binnaryOperator = ast as BinnaryOperatorNode;
-		checkValidVariables(binnaryOperator.lhs, validVariables, path);
-		checkValidVariables(binnaryOperator.rhs, validVariables, path);
+	if (ast.type === "binaryOperator") {
+		const binaryOperator = ast as BinaryOperatorNode;
+		checkValidVariables(binaryOperator.lhs, validVariables, path);
+		checkValidVariables(binaryOperator.rhs, validVariables, path);
 	}
 	if (ast.type === "notOperator") {
 		const notOperator = ast as NotOperatorNode;

@@ -1,6 +1,6 @@
 import {
 	AstNode,
-	BinnaryOperatorNode,
+	BinaryOperatorNode,
 	CustomBinaryFunction,
 	CustomUniaryFunction,
 	NotOperatorNode,
@@ -17,12 +17,12 @@ import {
 	GreaterThan,
 	LessThan,
 	NoneIn,
-	ShouldExist,
+	ArePresent,
 } from "../../../services/return-complier/tokens.js";
 
 const uniaryFunction = {
 	[AreUnique.LABEL ?? "are unique"]: "areUnique",
-	[ShouldExist.LABEL ?? "should exist"]: "shouldExist",
+	[ArePresent.LABEL ?? "are present"]: "arePresent",
 };
 const binaryFunction = {
 	[AllIn.LABEL ?? "all in"]: "allIn",
@@ -39,8 +39,8 @@ function compileToTs(node: AstNode): string {
 		const returnNode = node as ReturnStatementNode;
 		return compileToTs(returnNode.expression);
 	}
-	if (node.type === "binnaryOperator") {
-		const binaryNode = node as BinnaryOperatorNode;
+	if (node.type === "binaryOperator") {
+		const binaryNode = node as BinaryOperatorNode;
 		const lhs = compileToTs(binaryNode.lhs);
 		const rhs = compileToTs(binaryNode.rhs);
 		return `(${lhs}) ${binaryNode.operator} (${rhs})`;

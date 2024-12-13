@@ -79,7 +79,7 @@ export class ConfigCompiler {
 				await new TypescriptGenerator(
 					valConfig,
 					this.errorDefinitions ?? [],
-					"./testing"
+					"./L1-validations"
 				).generateCode();
 				break;
 			default:

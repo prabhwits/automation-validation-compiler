@@ -1,7 +1,7 @@
 import logger from "../../../utils/logger.js";
 import {
 	AstNode,
-	BinnaryOperatorNode,
+	BinaryOperatorNode,
 	CustomBinaryFunction,
 	CustomUniaryFunction,
 	NotOperatorNode,
@@ -11,28 +11,28 @@ import {
 	AllIn,
 	AnyIn,
 	AreUnique,
+	ArePresent,
 	EqualTo,
 	FollowRegex,
 	GreaterThan,
 	LessThan,
 	NoneIn,
-	ShouldExist,
 } from "../tokens.js";
 
 const uniaryMessages = {
 	[AreUnique.LABEL ?? "are unique"]: (variable: string, forNot: boolean) =>
-		`all values of {{{${variable}}}} must${forNot ? "**not**" : ""} be unique`,
-	[ShouldExist.LABEL ?? "should exist"]: (variable: string, forNot: boolean) =>
-		`{{{${variable}}}} must${forNot ? "**not**" : ""} exist in the payload`,
+		`all values of {{{${variable}}}} must${forNot ? " **not**" : ""} be unique`,
+	[ArePresent.LABEL ?? "are present"]: (variable: string, forNot: boolean) =>
+		`{{{${variable}}}} must${forNot ? " **not**" : ""} be present in the payload`,
 };
 const binaryMessages = {
 	[AllIn.LABEL ?? "all in"]: (lhs: string, rhs: string, forNot: boolean) =>
 		`every element of {{{${lhs}}}} must${
-			forNot ? "**not**" : ""
+			forNot ? " **not**" : ""
 		} be in {{{${rhs}}}}`,
 	[AnyIn.LABEL ?? "any in"]: (lhs: string, rhs: string, forNot: boolean) =>
 		`at least one element of {{{${lhs}}}} must${
-			forNot ? "**not**" : ""
+			forNot ? " **not**" : ""
 		} be in {{{${rhs}}}}`,
 	[FollowRegex.LABEL ?? "follow regex"]: (
 		lhs: string,
@@ -40,25 +40,25 @@ const binaryMessages = {
 		forNot: boolean
 	) =>
 		`all elements of {{{${lhs}}}} must${
-			forNot ? "**not**" : ""
+			forNot ? " **not**" : ""
 		} follow every regex in {{{${rhs}}}}`,
 	[NoneIn.LABEL ?? "none in"]: (lhs: string, rhs: string, forNot: boolean) =>
 		`no element of {{{${lhs}}}} must${
-			forNot ? "**not**" : ""
+			forNot ? " **not**" : ""
 		} be in {{{${rhs}}}}`,
 	[EqualTo.LABEL ?? "equal to"]: (lhs: string, rhs: string, forNot: boolean) =>
-		`{{{${lhs}}}} must${forNot ? "**not**" : ""} be equal to {{{${rhs}}}}`,
+		`{{{${lhs}}}} must${forNot ? " **not**" : ""} be equal to {{{${rhs}}}}`,
 	[GreaterThan.LABEL ?? "greater than"]: (
 		lhs: string,
 		rhs: string,
 		forNot: boolean
 	) =>
-		`{{{${lhs}}}} must${forNot ? "**not**" : ""} be greater than {{{${rhs}}}}`,
+		`{{{${lhs}}}} must${forNot ? " **not**" : ""} be greater than {{{${rhs}}}}`,
 	[LessThan.LABEL ?? "less than"]: (
 		lhs: string,
 		rhs: string,
 		forNot: boolean
-	) => `{{{${lhs}}}} must${forNot ? "**not**" : ""} be less than {{{${rhs}}}}`,
+	) => `{{{${lhs}}}} must${forNot ? " **not**" : ""} be less than {{{${rhs}}}}`,
 };
 
 export function CompileToMarkdown(
@@ -88,8 +88,8 @@ export function CompileToMarkdown(
 		);
 		return `${generated}`;
 	}
-	if (ast.type === "binnaryOperator") {
-		const binary = ast as BinnaryOperatorNode;
+	if (ast.type === "binaryOperator") {
+		const binary = ast as BinaryOperatorNode;
 		const subMdLhs = CompileToMarkdown(
 			binary.lhs,
 			getNextPointer(pointer, 1),

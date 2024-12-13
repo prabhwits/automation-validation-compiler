@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown to HTML</title>
+    <title>API SERVICE VALIDATIONS</title>
     <!-- Link to the CSS file -->
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="content">
+        <h2>List of validations of api</h2>
         {{{content}}}
     </div>
 </body>
@@ -32,31 +33,4 @@
         });
     });
 </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Function to recursively set colors for nested lists
-        function setNestedColors(list, level = 0) {
-            const colors = ["#1e1e1e", "#2c2c2c", "#393939", "#464646"]; // Color shades for levels
-            const items = list.querySelectorAll(":scope > li > p");
-    
-            items.forEach((item) => {
-                const colorIndex = level % colors.length; // Cycle through colors
-                item.style.backgroundColor = colors[colorIndex];
-                item.style.color = colorIndex === 0 ? "#cfcfcf" : "#d9d9d9"; // Adjust text color
-    
-                // Check for nested lists and apply recursively
-                const nestedList = item.parentElement.querySelector(":scope > ul");
-                if (nestedList) {
-                    setNestedColors(nestedList, level + 1);
-                }
-            });
-        }
-    
-        // Select the top-level list and apply the function
-        const topLevelList = document.querySelector("ul");
-        if (topLevelList) {
-            setNestedColors(topLevelList);
-        }
-    });
-    </script>
 </html>

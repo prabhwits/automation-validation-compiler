@@ -4,7 +4,7 @@ import { ReturnParserInstance } from "./parser.js";
 export interface AstNode {
 	type:
 		| "returnStatement"
-		| "binnaryOperator"
+		| "binaryOperator"
 		| "notOperator"
 		| "customBinaryFunction"
 		| "customUniaryFunction"
@@ -15,7 +15,7 @@ export interface ReturnStatementNode extends AstNode {
 	expression: AstNode;
 }
 
-export interface BinnaryOperatorNode extends AstNode {
+export interface BinaryOperatorNode extends AstNode {
 	operator: "&&" | "||";
 	lhs: AstNode;
 	rhs: AstNode;
@@ -54,14 +54,14 @@ export class AstBuilder extends ReturnParserInstance.getBaseCstVisitorConstructo
 		};
 	}
 
-	orExpression(ctx: any): BinnaryOperatorNode | AstNode {
+	orExpression(ctx: any): BinaryOperatorNode | AstNode {
 		let left = this.visit(ctx.lhs);
 		if (!ctx.operator) return left;
 
 		if (ctx.operator) {
 			for (let i = 0; i < ctx.operator.length; i++) {
 				left = {
-					type: "binnaryOperator",
+					type: "binaryOperator",
 					operator: ctx.operator[i].image,
 					lhs: left,
 					rhs: this.visit(ctx.rhs[i]),
@@ -71,14 +71,14 @@ export class AstBuilder extends ReturnParserInstance.getBaseCstVisitorConstructo
 		return left;
 	}
 
-	andExpression(ctx: any): BinnaryOperatorNode | AstNode {
+	andExpression(ctx: any): BinaryOperatorNode | AstNode {
 		let left = this.visit(ctx.lhs);
 		if (!ctx.operator) return left;
 
 		if (ctx.operator) {
 			for (let i = 0; i < ctx.operator.length; i++) {
 				left = {
-					type: "binnaryOperator",
+					type: "binaryOperator",
 					operator: ctx.operator[i].image,
 					lhs: left,
 					rhs: this.visit(ctx.rhs[i]),
