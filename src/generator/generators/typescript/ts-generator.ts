@@ -183,7 +183,6 @@ export class TypescriptGenerator extends CodeGenerator {
 			const names = functionCodes.map((f) => {
 				return { name: f.funcName };
 			});
-			logger.debug(JSON.stringify(names));
 			return Mustache.render(template, {
 				isNested: true,
 				nestedFunctions: functionCodes.map((f) => f.code).join("\n"),

@@ -23,7 +23,7 @@ const defaultConfig: CodeGeneratorConfig = {
 export class ConfigCompiler {
 	buildData: BUID_TYPE | undefined;
 	jsonSchemas: Record<string, JSONSchema7> | undefined;
-	possibleJsonPahts: Record<string, string[]> | undefined;
+	possibleJsonPaths: Record<string, string[]> | undefined;
 	errorDefinitions: ErrorDefinition[] | undefined;
 	language: SupportedLanguages;
 	private SchemaExtactionService: SchemaExtactionService;
@@ -43,7 +43,7 @@ export class ConfigCompiler {
 			finalConfig.removeRequiredfromSchema,
 			finalConfig.removeEnumsfromSchema
 		);
-		this.possibleJsonPahts = this.SchemaExtactionService.extractPossiblePaths(
+		this.possibleJsonPaths = this.SchemaExtactionService.extractPossiblePaths(
 			this.jsonSchemas
 		);
 		const errors = this.buildData["x-errorcodes"];
@@ -54,7 +54,7 @@ export class ConfigCompiler {
 		try {
 			if (!this.buildData) throw new Error("Build data not initialized");
 			if (!this.jsonSchemas) throw new Error("Schemas not initialized");
-			if (!this.possibleJsonPahts)
+			if (!this.possibleJsonPaths)
 				throw new Error("Possible paths not initialized");
 			if (!this.errorDefinitions)
 				throw new Error("Error definitions not initialized");
@@ -62,7 +62,7 @@ export class ConfigCompiler {
 			await new ConfigValidator(
 				"",
 				valConfig,
-				this.possibleJsonPahts,
+				this.possibleJsonPaths,
 				this.errorDefinitions
 			).validate();
 		} catch (e) {

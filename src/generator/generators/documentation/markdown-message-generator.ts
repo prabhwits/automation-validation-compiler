@@ -7,6 +7,7 @@ import {
 	addTabToMarkdown,
 	ConvertArrayToStringsInTestObject,
 } from "../../../utils/general-utils/string-utils.js";
+import {TestObjectSyntax} from "../../../constants/syntax.js";
 
 export function markdownMessageGenerator(
 	returnInput: string,
@@ -16,11 +17,11 @@ export function markdownMessageGenerator(
 ) {
 	const ast = buildAstFromInput(returnInput);
 	const returnTemplate = CompileToMarkdown(ast, startingPointer, 0, false);
+
 	let finalReturn = Mustache.render(
 		returnTemplate,
 		ConvertArrayToStringsInTestObject(variableValues)
 	);
-	console.log(finalReturn);
 	if (skipInput) {
 		let skipMarkdown = `Note: **Condition ${startingPointer}** can be skipped if the following conditions are met:`;
 		const letters = "BCDEFGHIJKLMNOPQRSTUVWXYZ";

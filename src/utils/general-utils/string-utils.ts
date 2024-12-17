@@ -1,4 +1,4 @@
-import { nodeReservedKeywords } from "../../constants/syntax.js";
+import {nodeReservedKeywords, TestObjectSyntax} from "../../constants/syntax.js";
 import { TestObject } from "../../types/config-types.js";
 import { getVariablesFromTest } from "./test-object-utils.js";
 
@@ -41,11 +41,19 @@ export function addBlockquoteToMarkdown(markdown: string): string {
 export function ConvertArrayToStringsInTestObject(testObject: TestObject) {
 	const variables = getVariablesFromTest(testObject);
 	const testDuplicate = { ...testObject };
+	const scope = testObject[TestObjectSyntax.Scope];
 	for (const variable of variables) {
 		if (Array.isArray(testObject[variable])) {
 			let vals = testObject[variable].map((v) => `"${v}"`).join(", ");
 			vals = vals.replace(/"/g, `"`);
 			testDuplicate[variable] = `[${vals}]`;
+		}
+		else{
+			if(scope){
+				const path = testDuplicate[variable] as string;
+				const pathWithoutDollar = path.slice(2);
+				testDuplicate[variable] = `${scope}.${pathWithoutDollar}`;
+			}
 		}
 	}
 	return testDuplicate;
