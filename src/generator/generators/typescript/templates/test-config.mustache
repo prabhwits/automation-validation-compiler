@@ -9,11 +9,13 @@ export type validationOutput = {
 	description?: string;
 }[];
 
-export type ExternalData = {
+{% comment %} export type ExternalData = {
     {{#externalData}}
     {{name}}?: string[];
     {{/externalData}}
-};
+}; {% endcomment %}
+
+export type ExternalData = {}
 
 export type validationInput = {
 	payload: any;
