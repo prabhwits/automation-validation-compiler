@@ -66,18 +66,21 @@ export const NoneIn = createToken({
 export const EqualTo = createToken({
 	name: "EqualTo",
 	pattern: /equal to/i,
+	categories: CustomBinaryFunctions,
 	label: "equal to",
 });
 
 export const GreaterThan = createToken({
 	name: "GreaterThan",
 	pattern: /greater than/i,
+	categories: CustomBinaryFunctions,
 	label: "greater than",
 });
 
 export const LessThan = createToken({
 	name: "LessThan",
 	pattern: /less than/i,
+	categories: CustomBinaryFunctions,
 	label: "less than",
 });
 

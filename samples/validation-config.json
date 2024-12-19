@@ -5,7 +5,7 @@
 				"_NAME_": "validate_code_0",
 				"attr": "$.context.location.country.code",
 				"reg": ["123"],
-				"_RETURN_": "attr follow regex reg"
+				"_RETURN_": "attr equal to reg"
 			},
 			{
 				"_NAME_": "validate_code_1",
@@ -64,101 +64,70 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"search"
-				],
+				"enumList": ["search"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.intent.fulfillment.vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_7",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.intent.fulfillment.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.intent.fulfillment.stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.intent.fulfillment.stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.intent.fulfillment.stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.intent.fulfillment.state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"BUYER_FINDER_FEES",
-					"SETTLEMENT_TERMS"
-				],
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
 				"tagPath": "$.message.intent.payment.tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -191,9 +160,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"PAGINATION"
-				],
+				"validTags": ["PAGINATION"],
 				"tagPath": "$.message.intent.tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -202,10 +169,7 @@
 				"_NAME_": "validate_tag_1_PAGINATION",
 				"_SCOPE_": "$.message.intent.tags[?(@.descriptor.code=='PAGINATION')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PAGINATION_ID",
-					"REQUESTED_PAGE_NUMBER"
-				],
+				"validValues": ["PAGINATION_ID", "REQUESTED_PAGE_NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			}
 		],
@@ -292,103 +256,70 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"select"
-				],
+				"enumList": ["select"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -408,12 +339,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -422,38 +348,28 @@
 				"_NAME_": "validate_tag_0_ROUTE_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TICKET_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TRIP_DETAILS",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			}
 		],
@@ -555,103 +471,70 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"init"
-				],
+				"enumList": ["init"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -671,10 +554,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"BUYER_FINDER_FEES",
-					"SETTLEMENT_TERMS"
-				],
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
 				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -824,134 +704,91 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"confirm"
-				],
+				"enumList": ["confirm"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_13",
-				"enumList": [
-					"NOT-PAID",
-					"PAID"
-				],
+				"enumList": ["NOT-PAID", "PAID"],
 				"enumPath": "$.message.order.payments[*].status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_14",
-				"enumList": [
-					"BPP",
-					"BAP"
-				],
+				"enumList": ["BPP", "BAP"],
 				"enumPath": "$.message.order.payments[*].collected_by",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_15",
-				"enumList": [
-					"PRE-ORDER",
-					"ON-FULFILLMENT",
-					"POST-FULFILLMENT"
-				],
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 				"enumPath": "$.message.order.payments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -1038,27 +875,21 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"status"
-				],
+				"enumList": ["status"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -1152,37 +983,28 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"cancel"
-				],
+				"enumList": ["cancel"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SOFT-CANCEL",
-					"CONFIRM-CANCEL"
-				],
+				"enumList": ["SOFT-CANCEL", "CONFIRM-CANCEL"],
 				"enumPath": "$.message.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -1311,156 +1133,105 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"on_search"
-				],
+				"enumList": ["on_search"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SEATER",
-					"SLEEPER",
-					"SEMI_SLEEPER",
-					"TICKET",
-					"PASS"
-				],
+				"enumList": ["SEATER", "SLEEPER", "SEMI_SLEEPER", "TICKET", "PASS"],
 				"enumPath": "$.message.catalog.providers[*].categories[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.catalog.providers[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_7",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.catalog.providers[*].fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.catalog.providers[*].fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.catalog.providers[*].fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.catalog.providers[*].fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.catalog.providers[*].fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_13",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.catalog.providers[*].fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_14",
-				"enumList": [
-					"NOT-PAID",
-					"PAID"
-				],
+				"enumList": ["NOT-PAID", "PAID"],
 				"enumPath": "$.message.catalog.providers[*].payments[*].status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_15",
-				"enumList": [
-					"BPP",
-					"BAP"
-				],
+				"enumList": ["BPP", "BAP"],
 				"enumPath": "$.message.catalog.providers[*].payments[*].collected_by",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_16",
-				"enumList": [
-					"PRE-ORDER",
-					"ON-FULFILLMENT",
-					"POST-FULFILLMENT"
-				],
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 				"enumPath": "$.message.catalog.providers[*].payments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"FARE_POLICY"
-				],
+				"validTags": ["FARE_POLICY"],
 				"tagPath": "$.message.catalog.providers[*].items[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -1469,20 +1240,12 @@
 				"_NAME_": "validate_tag_0_FARE_POLICY",
 				"_SCOPE_": "$.message.catalog.providers[*].items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"RESTRICTED_PERSON",
-					"RESTRICTION_PROOF"
-				],
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.catalog.providers[*].fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -1491,46 +1254,33 @@
 				"_NAME_": "validate_tag_1_ROUTE_INFO",
 				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1_TICKET_INFO",
 				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1_TRIP_DETAILS",
 				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1_INFO",
 				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_2",
-				"validTags": [
-					"BUYER_FINDER_FEES",
-					"SETTLEMENT_TERMS"
-				],
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
 				"tagPath": "$.message.catalog.providers[*].payments[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -1563,9 +1313,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_3",
-				"validTags": [
-					"SCHEDULED_INFO"
-				],
+				"validTags": ["SCHEDULED_INFO"],
 				"tagPath": "$.message.catalog.providers[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -1574,16 +1322,12 @@
 				"_NAME_": "validate_tag_3_SCHEDULED_INFO",
 				"_SCOPE_": "$.message.catalog.providers[*].tags[?(@.descriptor.code=='SCHEDULED_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"GTFS"
-				],
+				"validValues": ["GTFS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_4",
-				"validTags": [
-					"PAGINATION"
-				],
+				"validTags": ["PAGINATION"],
 				"tagPath": "$.message.catalog.tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -1783,103 +1527,70 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"on_select"
-				],
+				"enumList": ["on_select"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -1899,12 +1610,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -1913,45 +1619,33 @@
 				"_NAME_": "validate_tag_0_ROUTE_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TICKET_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TRIP_DETAILS",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"FARE_POLICY"
-				],
+				"validTags": ["FARE_POLICY"],
 				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -1960,10 +1654,7 @@
 				"_NAME_": "validate_tag_1_FARE_POLICY",
 				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"RESTRICTED_PERSON",
-					"RESTRICTION_PROOF"
-				],
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
 				"_RETURN_": "subTags all in validValues"
 			}
 		],
@@ -2170,134 +1861,91 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"on_init"
-				],
+				"enumList": ["on_init"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_13",
-				"enumList": [
-					"NOT-PAID",
-					"PAID"
-				],
+				"enumList": ["NOT-PAID", "PAID"],
 				"enumPath": "$.message.order.payments[*].status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_14",
-				"enumList": [
-					"BPP",
-					"BAP"
-				],
+				"enumList": ["BPP", "BAP"],
 				"enumPath": "$.message.order.payments[*].collected_by",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_15",
-				"enumList": [
-					"PRE-ORDER",
-					"ON-FULFILLMENT",
-					"POST-FULFILLMENT"
-				],
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 				"enumPath": "$.message.order.payments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -2317,12 +1965,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -2331,45 +1974,33 @@
 				"_NAME_": "validate_tag_0_ROUTE_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TICKET_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TRIP_DETAILS",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"FARE_POLICY"
-				],
+				"validTags": ["FARE_POLICY"],
 				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -2378,18 +2009,12 @@
 				"_NAME_": "validate_tag_1_FARE_POLICY",
 				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"RESTRICTED_PERSON",
-					"RESTRICTION_PROOF"
-				],
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_2",
-				"validTags": [
-					"BUYER_FINDER_FEES",
-					"SETTLEMENT_TERMS"
-				],
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
 				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -2664,134 +2289,91 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"on_confirm"
-				],
+				"enumList": ["on_confirm"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_13",
-				"enumList": [
-					"NOT-PAID",
-					"PAID"
-				],
+				"enumList": ["NOT-PAID", "PAID"],
 				"enumPath": "$.message.order.payments[*].status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_14",
-				"enumList": [
-					"BPP",
-					"BAP"
-				],
+				"enumList": ["BPP", "BAP"],
 				"enumPath": "$.message.order.payments[*].collected_by",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_15",
-				"enumList": [
-					"PRE-ORDER",
-					"ON-FULFILLMENT",
-					"POST-FULFILLMENT"
-				],
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 				"enumPath": "$.message.order.payments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -2824,12 +2406,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -2838,45 +2415,33 @@
 				"_NAME_": "validate_tag_0_ROUTE_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TICKET_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TRIP_DETAILS",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"FARE_POLICY"
-				],
+				"validTags": ["FARE_POLICY"],
 				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -2885,18 +2450,12 @@
 				"_NAME_": "validate_tag_1_FARE_POLICY",
 				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"RESTRICTED_PERSON",
-					"RESTRICTION_PROOF"
-				],
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_2",
-				"validTags": [
-					"BUYER_FINDER_FEES",
-					"SETTLEMENT_TERMS"
-				],
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
 				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -3156,134 +2715,91 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"on_cancel"
-				],
+				"enumList": ["on_cancel"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_13",
-				"enumList": [
-					"NOT-PAID",
-					"PAID"
-				],
+				"enumList": ["NOT-PAID", "PAID"],
 				"enumPath": "$.message.order.payments[*].status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_14",
-				"enumList": [
-					"BPP",
-					"BAP"
-				],
+				"enumList": ["BPP", "BAP"],
 				"enumPath": "$.message.order.payments[*].collected_by",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_15",
-				"enumList": [
-					"PRE-ORDER",
-					"ON-FULFILLMENT",
-					"POST-FULFILLMENT"
-				],
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 				"enumPath": "$.message.order.payments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -3316,12 +2832,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -3330,45 +2841,33 @@
 				"_NAME_": "validate_tag_0_ROUTE_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TICKET_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TRIP_DETAILS",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"FARE_POLICY"
-				],
+				"validTags": ["FARE_POLICY"],
 				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -3377,18 +2876,12 @@
 				"_NAME_": "validate_tag_1_FARE_POLICY",
 				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"RESTRICTED_PERSON",
-					"RESTRICTION_PROOF"
-				],
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_2",
-				"validTags": [
-					"BUYER_FINDER_FEES",
-					"SETTLEMENT_TERMS"
-				],
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
 				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -3613,134 +3106,91 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"on_cancel"
-				],
+				"enumList": ["on_cancel"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_13",
-				"enumList": [
-					"NOT-PAID",
-					"PAID"
-				],
+				"enumList": ["NOT-PAID", "PAID"],
 				"enumPath": "$.message.order.payments[*].status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_14",
-				"enumList": [
-					"BPP",
-					"BAP"
-				],
+				"enumList": ["BPP", "BAP"],
 				"enumPath": "$.message.order.payments[*].collected_by",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_15",
-				"enumList": [
-					"PRE-ORDER",
-					"ON-FULFILLMENT",
-					"POST-FULFILLMENT"
-				],
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 				"enumPath": "$.message.order.payments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -3773,12 +3223,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -3787,45 +3232,33 @@
 				"_NAME_": "validate_tag_0_ROUTE_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TICKET_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TRIP_DETAILS",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"FARE_POLICY"
-				],
+				"validTags": ["FARE_POLICY"],
 				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -3834,10 +3267,7 @@
 				"_NAME_": "validate_tag_1_FARE_POLICY",
 				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"RESTRICTED_PERSON",
-					"RESTRICTION_PROOF"
-				],
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
 				"_RETURN_": "subTags all in validValues"
 			}
 		],
@@ -4099,134 +3529,91 @@
 			},
 			{
 				"_NAME_": "validate_enum_1",
-				"enumList": [
-					"on_status"
-				],
+				"enumList": ["on_status"],
 				"enumPath": "$.context.action",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_2",
-				"enumList": [
-					"IND"
-				],
+				"enumList": ["IND"],
 				"enumPath": "$.context.location.country.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_4",
-				"enumList": [
-					"ONDC:TRV11"
-				],
+				"enumList": ["ONDC:TRV11"],
 				"enumPath": "$.context.domain",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_5",
-				"enumList": [
-					"SJT",
-					"SFSJT",
-					"RJT",
-					"PASS"
-				],
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
 				"enumPath": "$.message.order.items[*].descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_6",
-				"enumList": [
-					"METRO"
-				],
+				"enumList": ["METRO"],
 				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_8",
-				"enumList": [
-					"ROUTE",
-					"TRIP",
-					"TICKET",
-					"PASS",
-					"STOPS"
-				],
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
 				"enumPath": "$.message.order.fulfillments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_9",
-				"enumList": [
-					"START",
-					"END",
-					"INTERMEDIATE_STOP",
-					"TRANSIT_STOP"
-				],
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_10",
-				"enumList": [
-					"QR"
-				],
+				"enumList": ["QR"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_11",
-				"enumList": [
-					"UNCLAIMED",
-					"CLAIMED",
-					"EXPIRED"
-				],
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
 				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_12",
-				"enumList": [
-					"INACTIVE",
-					"ACTIVE"
-				],
+				"enumList": ["INACTIVE", "ACTIVE"],
 				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_13",
-				"enumList": [
-					"NOT-PAID",
-					"PAID"
-				],
+				"enumList": ["NOT-PAID", "PAID"],
 				"enumPath": "$.message.order.payments[*].status",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_14",
-				"enumList": [
-					"BPP",
-					"BAP"
-				],
+				"enumList": ["BPP", "BAP"],
 				"enumPath": "$.message.order.payments[*].collected_by",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
 			},
 			{
 				"_NAME_": "validate_enum_15",
-				"enumList": [
-					"PRE-ORDER",
-					"ON-FULFILLMENT",
-					"POST-FULFILLMENT"
-				],
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 				"enumPath": "$.message.order.payments[*].type",
 				"_CONTINUE_": "!(enumPath are present)",
 				"_RETURN_": "enumPath all in enumList"
@@ -4259,12 +3646,7 @@
 			},
 			{
 				"_NAME_": "validate_tag_0",
-				"validTags": [
-					"ROUTE_INFO",
-					"TICKET_INFO",
-					"TRIP_DETAILS",
-					"INFO"
-				],
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
 				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -4273,45 +3655,33 @@
 				"_NAME_": "validate_tag_0_ROUTE_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"ROUTE_ID",
-					"ROUTE_DIRECTION"
-				],
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TICKET_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"NUMBER"
-				],
+				"validValues": ["NUMBER"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_TRIP_DETAILS",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"AVAILABLE_TRIPS",
-					"UTILIZED_TRIPS"
-				],
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_0_INFO",
 				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"PARENT_ITEM_ID"
-				],
+				"validValues": ["PARENT_ITEM_ID"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_1",
-				"validTags": [
-					"FARE_POLICY"
-				],
+				"validTags": ["FARE_POLICY"],
 				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
@@ -4320,18 +3690,12 @@
 				"_NAME_": "validate_tag_1_FARE_POLICY",
 				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
 				"subTags": "$.list[*].descriptor.code",
-				"validValues": [
-					"RESTRICTED_PERSON",
-					"RESTRICTION_PROOF"
-				],
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
 				"_RETURN_": "subTags all in validValues"
 			},
 			{
 				"_NAME_": "validate_tag_2",
-				"validTags": [
-					"BUYER_FINDER_FEES",
-					"SETTLEMENT_TERMS"
-				],
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
 				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
 				"_CONTINUE_": "!(tagPath are present)",
 				"_RETURN_": "tagPath all in validTags"
