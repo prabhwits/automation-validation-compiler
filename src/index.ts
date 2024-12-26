@@ -25,6 +25,7 @@ const main = async () => {
 	const valConfig = JSON.parse(readFileSync(valConfigPath, "utf-8"));
 	await compiler.initialize(buildYaml);
 	await compiler.generateCode(valConfig);
+	// await compiler.generateL0Schema();
 	// await compiler.performValidations(valConfig);
 
 	// const inputs = [

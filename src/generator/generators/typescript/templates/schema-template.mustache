@@ -1,0 +1,18 @@
+
+
+{{#actions}}
+import { {{{action}}} } from './{{{action}}}'
+{{/actions}}
+
+
+export default function getSchema(action : string){
+    switch(action){
+        {{#actions}}
+        case '{{{action}}}':
+            return {{{action}}};
+        {{/actions}}
+        default:
+            throw new Error('Action not found');
+    }
+}
+

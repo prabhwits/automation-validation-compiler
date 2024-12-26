@@ -9,6 +9,10 @@ import { SupportedLanguages } from "../types/compiler-types.js";
 
 import { TypescriptGenerator } from "./generators/typescript/ts-generator.js";
 import { ConfigValidator } from "./validators/config-validator.js";
+import { writeAndFormatCode } from "../utils/fs-utils.js";
+import { readFileSync } from "fs";
+import path from "path";
+import Mustache from "mustache";
 
 type CodeGeneratorConfig = {
 	removeRequiredfromSchema: boolean;
@@ -79,11 +83,40 @@ export class ConfigCompiler {
 				await new TypescriptGenerator(
 					valConfig,
 					this.errorDefinitions ?? [],
-					"./L1-validations"
+					"./generated/L1-validations"
 				).generateCode();
 				break;
 			default:
 				throw new Error("Language not supported");
 		}
+	};
+
+	generateL0Schema = async () => {
+		if (!this.jsonSchemas) {
+			throw new Error("Schemas not initialized");
+		}
+
+		for (const schema in this.jsonSchemas) {
+			const json = this.jsonSchemas[schema];
+			writeAndFormatCode(
+				`./generated/L0-schemas`,
+				`${schema}.ts`,
+				`export const ${schema} = ${JSON.stringify(json, null, 2)}`,
+				"typescript"
+			);
+		}
+
+		const actions = Object.keys(this.jsonSchemas).map((schema) => {
+			return {
+				action: schema,
+			};
+		});
+		const template = readFileSync(
+			"/Users/rudranshsinghal/ondc/automation-utility/official-code/code-generator/src/generator/generators/typescript/templates/schema-template.mustache",
+			"utf-8"
+		);
+		console.log(actions);
+		const l0 = Mustache.render(template, { actions });
+		writeAndFormatCode(`./generated/L0-schemas`, `index.ts`, l0, "typescript");
 	};
 }

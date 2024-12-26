@@ -58,11 +58,11 @@ export class NameValidator extends TestObjectValidator {
 				`${TestObjectSyntax.Name} can't be a reserved keyword at path ${this.validtionPath}`
 			);
 		}
-		// if (!isSnakeCase(name)) {
-		// 	throw new Error(
-		// 		`${TestObjectSyntax.Name} must be in snake_case at path ${this.validtionPath}`
-		// 	);
-		// }
+		if (!isSnakeCase(name)) {
+			throw new Error(
+				`${TestObjectSyntax.Name} must be in snake_case at path ${this.validtionPath}`
+			);
+		}
 	};
 }
 
@@ -182,11 +182,7 @@ export class VariableValidator extends TestObjectValidator {
 					path = `${scope}.${pathWithoutDollar}`;
 				}
 				const replaced = replaceBracketsWithAsteriskNested(path);
-				if (
-					!this.possibleJsonPaths.includes(
-						replaced
-					)
-				) {
+				if (!this.possibleJsonPaths.includes(replaced)) {
 					throw new Error(
 						`Variable: ${key} should be a jsonPath that returns a array of strings or the path don't exist in the schema, at ${this.validtionPath} found orignal ${path} replaces: ${replaced}`
 					);

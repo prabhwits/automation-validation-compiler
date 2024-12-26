@@ -4,8 +4,7 @@
 			{
 				"_NAME_": "validate_code_0",
 				"attr": "$.context.location.country.code",
-				"reg": ["123"],
-				"_RETURN_": "attr equal to reg"
+				"_RETURN_": "attr are present"
 			},
 			{
 				"_NAME_": "validate_code_1",

@@ -1,4 +1,7 @@
-import {nodeReservedKeywords, TestObjectSyntax} from "../../constants/syntax.js";
+import {
+	nodeReservedKeywords,
+	TestObjectSyntax,
+} from "../../constants/syntax.js";
 import { TestObject } from "../../types/config-types.js";
 import { getVariablesFromTest } from "./test-object-utils.js";
 
@@ -9,7 +12,7 @@ import { getVariablesFromTest } from "./test-object-utils.js";
  * @returns true if the string is in snake_case, false otherwise
  */
 export function isSnakeCase(str: string): boolean {
-	const snakeCasePattern = /^[a-z0-9]+(_[a-z0-9]+)*$/;
+	const snakeCasePattern = /^[a-z0-9A-Z]+(_[a-z0-9A-Z]+)*$/;
 	return snakeCasePattern.test(str);
 }
 
@@ -47,9 +50,8 @@ export function ConvertArrayToStringsInTestObject(testObject: TestObject) {
 			let vals = testObject[variable].map((v) => `"${v}"`).join(", ");
 			vals = vals.replace(/"/g, `"`);
 			testDuplicate[variable] = `[${vals}]`;
-		}
-		else{
-			if(scope){
+		} else {
+			if (scope) {
 				const path = testDuplicate[variable] as string;
 				const pathWithoutDollar = path.slice(2);
 				testDuplicate[variable] = `${scope}.${pathWithoutDollar}`;
