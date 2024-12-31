@@ -1,4 +1,4 @@
-import { readFileSync, write } from "fs";
+import { readFileSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { ConfigSyntax, TestObjectSyntax } from "../../../constants/syntax.js";
@@ -10,7 +10,6 @@ import { ConvertArrayToString } from "../../../utils/general-utils/string-utils.
 import { compileInputToTs } from "./ts-ast.js";
 import { CodeGenerator } from "../classes/abstract-generator.js";
 import { writeAndFormatCode } from "../../../utils/fs-utils.js";
-import logger from "../../../utils/logger.js";
 import { ErrorDefinition } from "../../../types/error-codes.js";
 import { MarkdownDocGenerator } from "../documentation/md-generator.js";
 
@@ -117,6 +116,7 @@ export class TypescriptGenerator extends CodeGenerator {
 				? compileInputToTs(testObject[TestObjectSyntax.Continue])
 				: undefined,
 			validationCode: await this.createValidationLogicCode(testObject),
+			successCode: testObject[TestObjectSyntax.SuccessCode] ?? 200,
 		};
 		return {
 			funcName: testObject[TestObjectSyntax.Name],
@@ -271,4 +271,5 @@ interface mustachRequirements {
 	hasContinue: boolean;
 	skipCheckStatement?: string;
 	validationCode: string;
+	successCode: number;
 }

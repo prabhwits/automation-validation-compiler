@@ -6,6 +6,7 @@ export type TestObject = {
 	[TestObjectSyntax.Return]: string | TestObject[];
 	[TestObjectSyntax.Scope]?: string;
 	[TestObjectSyntax.ErrorCode]?: number;
+	[TestObjectSyntax.SuccessCode]?: number;
 	[TestObjectSyntax.Continue]?: string;
 	[key: string]: ConfigVariable | number | TestObject[] | undefined;
 };

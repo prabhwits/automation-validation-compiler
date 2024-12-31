@@ -131,6 +131,15 @@ export class ErrorCodeValidator extends TestObjectValidator {
 				`${TestObjectSyntax.ErrorCode} don't exist in error codes at path ${this.validtionPath}`
 			);
 		}
+
+		if (!this.targetObject[TestObjectSyntax.SuccessCode]) {
+			return;
+		}
+		if (typeof this.targetObject[TestObjectSyntax.SuccessCode] !== "number") {
+			throw new Error(
+				`${TestObjectSyntax.SuccessCode} should be a number at path ${this.validtionPath}`
+			);
+		}
 	};
 }
 

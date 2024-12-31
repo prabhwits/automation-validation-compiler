@@ -14,5 +14,5 @@ function {{name}}(input: validationInput): validationOutput {
         {{{validationCode}}}
         delete testObj._EXTERNAL;
     }
-    return [{valid: true}];
+    return [{valid: true,code: {{successCode}} }];
 }

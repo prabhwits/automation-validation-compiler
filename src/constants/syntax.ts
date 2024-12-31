@@ -4,6 +4,7 @@ export enum TestObjectSyntax {
 	Scope = "_SCOPE_",
 	Continue = "_CONTINUE_",
 	ErrorCode = "_ERROR_CODE_",
+	SuccessCode = "_SUCCESS_CODE_",
 }
 
 export const ExternalDataSyntax = "_EXTERNAL";
@@ -19,6 +20,7 @@ export const ConfigKeyWords = [
 	TestObjectSyntax.Scope,
 	TestObjectSyntax.Continue,
 	TestObjectSyntax.ErrorCode,
+	TestObjectSyntax.SuccessCode,
 	ConfigSyntax.Tests,
 	ConfigSyntax.SessionData,
 ];
