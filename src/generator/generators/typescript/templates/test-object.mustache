@@ -1,5 +1,7 @@
 function {{name}}(input: validationInput): validationOutput {
     const scope = payloadUtils.getJsonPath(input.payload,"{{{scopePath}}}");
+    let subResults: validationOutput = [];
+    let valid = true;
     for(const testObj of scope){
         testObj._EXTERNAL = input.externalData;
         {{#variables}}
@@ -14,5 +16,5 @@ function {{name}}(input: validationInput): validationOutput {
         {{{validationCode}}}
         delete testObj._EXTERNAL;
     }
-    return [{valid: true,code: {{successCode}} }];
+    return [{valid: valid,code: {{successCode}} },...subResults];
 }

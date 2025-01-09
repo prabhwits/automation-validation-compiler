@@ -11,14 +11,17 @@ const testFunctions: testFunctionArray = [
 
 let invalidResults: validationOutput = [];
 for (const fn of testFunctions) {
-    const subResult = fn(input).filter(r => !r.valid);
+    const subResult = fn(input);
+    // .filter(r => !r.valid);
     invalidResults = [...invalidResults, ...subResult];
     if(!input.config.runAllValidations && invalidResults.length > 0) {
         return invalidResults;
     }
 }
 if(invalidResults.length > 0) {
-    return invalidResults;
+    // return invalidResults;
+    subResults = invalidResults;
+    valid = subResults.every(r => r.valid);
 }
 
 {{/isNested}}
