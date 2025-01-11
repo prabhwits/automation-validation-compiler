@@ -7,7 +7,6 @@ import {
 	addTabToMarkdown,
 	ConvertArrayToStringsInTestObject,
 } from "../../../utils/general-utils/string-utils.js";
-import {TestObjectSyntax} from "../../../constants/syntax.js";
 
 export function markdownMessageGenerator(
 	returnInput: string,

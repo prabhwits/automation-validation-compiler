@@ -131,7 +131,7 @@ export class TypescriptGenerator extends CodeGenerator {
 		return markdownMessageGenerator(
 			testObject[TestObjectSyntax.Return] as string,
 			testObject,
-			"A",
+			testObject[TestObjectSyntax.Name],
 			skipList
 		);
 	}
