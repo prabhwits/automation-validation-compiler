@@ -28,14 +28,14 @@ export class CompleteTestObjectValidator extends TestObjectValidator {
 	validate = async () => {
 		await new RequiredFieldsValidator(
 			this.targetObject,
-			this.validtionPath
+			this.validationPath
 		).validate();
-		await new NameValidator(this.targetObject, this.validtionPath).validate();
+		await new NameValidator(this.targetObject, this.validationPath).validate();
 
 		if (this.targetObject[TestObjectSyntax.Scope]) {
 			await new ScopeValidator(
 				this.targetObject,
-				this.validtionPath,
+				this.validationPath,
 				this.dependencies.stringJsonPaths
 			).validate();
 		}
@@ -43,26 +43,26 @@ export class CompleteTestObjectValidator extends TestObjectValidator {
 		if (this.targetObject[TestObjectSyntax.ErrorCode]) {
 			await new ErrorCodeValidator(
 				this.targetObject,
-				this.validtionPath,
+				this.validationPath,
 				this.dependencies.errorDefinitions
 			).validate();
 		}
 
 		await new VariableValidator(
 			this.targetObject,
-			this.validtionPath,
+			this.validationPath,
 			this.dependencies.stringJsonPaths,
 			this.dependencies.externalVariables
 		).validate();
 		if (this.targetObject[TestObjectSyntax.Continue]) {
 			await new ContinueValidator(
 				this.targetObject,
-				this.validtionPath
+				this.validationPath
 			).validate();
 		}
 		await new ReturnValidator(
 			this.targetObject,
-			this.validtionPath,
+			this.validationPath,
 			this.dependencies
 		).validate();
 	};

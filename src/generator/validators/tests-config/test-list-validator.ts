@@ -8,7 +8,7 @@ import { CompleteTestObjectValidator } from "./test-validator.js";
 
 export class TestsValidator implements IValidator {
 	tests: TestObject[];
-	validtionPath: string;
+	validationPath: string;
 	dependencies: TestsValidatorDependencies;
 	constructor(
 		tests: TestObject[],
@@ -16,14 +16,14 @@ export class TestsValidator implements IValidator {
 		dependencies: TestsValidatorDependencies
 	) {
 		this.tests = tests;
-		this.validtionPath = configPath;
+		this.validationPath = configPath;
 		this.dependencies = dependencies;
 	}
 	validate = async () => {
 		this.validateDuplicateNames();
 		let i = 0;
 		for (const test of this.tests) {
-			const newPath = `${this.validtionPath}/${i}/${TestObjectSyntax.Name} = ${
+			const newPath = `${this.validationPath}/${i}/${TestObjectSyntax.Name} = ${
 				test[TestObjectSyntax.Name]
 			}`;
 			await new CompleteTestObjectValidator(
@@ -50,7 +50,7 @@ export class TestsValidator implements IValidator {
 
 		if (duplicates.size > 0) {
 			throw new Error(
-				`Duplicate test names found at ${this.validtionPath}: ${[
+				`Duplicate test names found at ${this.validationPath}: ${[
 					...duplicates,
 				].join(", ")}`
 			);

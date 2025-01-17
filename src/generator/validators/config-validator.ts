@@ -10,17 +10,17 @@ import { SessionDataValidator } from "./session-data-config/session-data-validat
 import { TestsValidator } from "./tests-config/test-list-validator.js";
 
 export class ConfigValidator implements IValidator {
-	validtionPath: string;
+	validationPath: string;
 	config: ValidationConfig;
 	stringJsonPaths: Record<string, string[]>;
 	errorDefinitions: ErrorDefinition[];
 	constructor(
-		validtionPath: string,
+		validationPath: string,
 		config: ValidationConfig,
 		stringJsonPaths: Record<string, string[]>,
 		errorDefinitions: ErrorDefinition[]
 	) {
-		this.validtionPath = validtionPath;
+		this.validationPath = validationPath;
 		this.config = config;
 		this.stringJsonPaths = stringJsonPaths;
 		this.errorDefinitions = errorDefinitions;
@@ -35,7 +35,7 @@ export class ConfigValidator implements IValidator {
 		const tests = this.config[ConfigSyntax.Tests];
 
 		await new SessionDataValidator(
-			`${this.validtionPath}/${ConfigSyntax.SessionData}`,
+			`${this.validationPath}/${ConfigSyntax.SessionData}`,
 			sessionData
 		).validate();
 
@@ -43,7 +43,7 @@ export class ConfigValidator implements IValidator {
 
 		for (const api in tests) {
 			const testList = tests[api];
-			const path = `${this.validtionPath}/${ConfigSyntax.Tests}/${api}`;
+			const path = `${this.validationPath}/${ConfigSyntax.Tests}/${api}`;
 			const dependencies: TestsValidatorDependencies = {
 				stringJsonPaths: this.stringJsonPaths[api],
 				errorDefinitions: this.errorDefinitions,

@@ -4,18 +4,18 @@ import { isPrimitive } from "../../../utils/general-utils/validation-utils.js";
 import { IValidator } from "../abstract-validator.js";
 
 export class SessionDataValidator implements IValidator {
-	validtionPath: string;
+	validationPath: string;
 	sessionData: Record<string, SessionDataApi>;
 	constructor(
 		validtionPath: string,
 		sessionData: Record<string, SessionDataApi>
 	) {
-		this.validtionPath = validtionPath;
+		this.validationPath = validtionPath;
 		this.sessionData = sessionData;
 	}
 	validate = async () => {
 		Object.entries(this.sessionData).forEach(([key, value]) => {
-			const newPath = `${this.validtionPath}/${key}`;
+			const newPath = `${this.validationPath}/${key}`;
 			this.validateSessionData(value, newPath);
 		});
 	};
