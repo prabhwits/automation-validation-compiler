@@ -1,50 +1,90 @@
 const errors = [
-    { code: 30001, message: "Internal Error Occured" },
-    { code: 30008, message: "The provided city cannot be serviced" },
-    { code: 50001, message: "Cancellation not possible for the selected item" },
+    { code: undefined, message: "Generic bad or invalid request error" },
+    { code: undefined, message: "Cannot verify signature for request" },
     {
-        code: 91201,
-        message: "To & from location not serviceable by Seller application",
+        code: undefined,
+        message: "Valid city code needs to be passed for search",
+    },
+    { code: undefined, message: "Catalog refresh is invalid" },
+    { code: undefined, message: "Cannot verify signature for response" },
+    { code: undefined, message: "Cannot process stale request" },
+    { code: undefined, message: "Provider not found" },
+    { code: undefined, message: "Provider location not found" },
+    { code: undefined, message: "Item not found" },
+    {
+        code: undefined,
+        message: "Invalid response does not meet API contract specifications",
     },
     {
-        code: 91202,
-        message: "Origin/To station not operational or unavailable",
+        code: undefined,
+        message: "Order/fulfillment state is stale or not valid",
     },
     {
-        code: 91203,
-        message: "Destination/From station not operational or unavailable",
-    },
-    { code: 91204, message: "Maximum order qty exceeded" },
-    {
-        code: 91205,
-        message: "Tracking not enabled for any fulfillment in the order",
-    },
-    {
-        code: 91206,
-        message: "Service temporarily unavailable from seller side",
-    },
-    { code: 91207, message: "Payment transaction failed" },
-    {
-        code: 91208,
-        message: "Ticketing not allowed during un-operational hours",
-    },
-    { code: 91209, message: "Unable to retrieve ticket details" },
-    { code: 91210, message: "Unable to retrieve station list and data" },
-    {
-        code: 91211,
-        message: "Cannot fetch fare details for the selected route",
-    },
-    { code: 91212, message: "Cannot process the transaction" },
-    {
-        code: 91213,
-        message: "The action for the transaction has been already processed",
-    },
-    {
-        code: 91214,
+        code: undefined,
         message:
-            "The fare collected does not match with the actual fare of the selected item",
+            "Callback received prior to ACK for request or out of sequence",
     },
-    { code: 91215, message: "No item found for the given item_id" },
+    { code: undefined, message: "Callback received late, session timed out" },
+    {
+        code: undefined,
+        message: "Cannot process response due to internal error, please retry",
+    },
+    { code: undefined, message: "Order validation failure" },
+    {
+        code: undefined,
+        message:
+            "Buyer App cannot confirm order as no response from Seller App",
+    },
+    {
+        code: undefined,
+        message: "Seller App terms and conditions not acceptable to Buyer App",
+    },
+    {
+        code: undefined,
+        message:
+            "Order terminated as Seller App did not accept terms and conditions proposed by Buyer App",
+    },
+    {
+        code: undefined,
+        message: "Invalid request does not meet API contract specifications",
+    },
+    {
+        code: undefined,
+        message:
+            "When Seller App is unable to find the provider ID sent by the Buyer App",
+    },
+    {
+        code: undefined,
+        message:
+            "When Seller App is unable to find the provider location ID sent by the Buyer App",
+    },
+    {
+        code: undefined,
+        message:
+            "When Seller App is unable to find the provider category ID sent by the Buyer App",
+    },
+    {
+        code: undefined,
+        message: "Unable to find details for item, may have been deleted",
+    },
+    { code: undefined, message: "Return reason is invalid" },
+    {
+        code: undefined,
+        message:
+            "Seller App cannot confirm order as no response from Buyer App",
+    },
+    {
+        code: undefined,
+        message: "Cannot process request due to internal error, please retry",
+    },
+    { code: undefined, message: "Order validation failure" },
+    { code: undefined, message: "Payment fails" },
+    { code: undefined, message: "Generic business error" },
+    {
+        code: undefined,
+        message:
+            "Order terminated as Buyer App did not accept terms proposed by Seller App",
+    },
     {
         code: 20006,
         message: "Invalid response does not meet API contract specifications",

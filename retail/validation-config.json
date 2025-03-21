@@ -1,0 +1,107 @@
+{
+	"_TESTS_": {
+		"search": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"select":[
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"init": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"confirm": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"status":[
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"cancel": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"update": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"on_search": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"on_select": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"on_init": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"on_confirm": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"on_cancel": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"on_update": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		],
+		"on_status": [
+			{
+				"_NAME_": "validate_attribute_4",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			}
+		]
+	},
+	"_SESSION_DATA_": {
+		"search": {
+			"transaction_id": "$.context.transaction_id"
+		}
+	}
+}

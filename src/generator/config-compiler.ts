@@ -51,6 +51,7 @@ export class ConfigCompiler {
 			this.jsonSchemas
 		);
 		const errors = this.buildData["x-errorcodes"];
+		console.log("errors", errors)
 		this.errorDefinitions = errors.code;
 	};
 
@@ -112,7 +113,10 @@ export class ConfigCompiler {
 			};
 		});
 		const template = readFileSync(
-			"/Users/rudranshsinghal/ondc/automation-utility/official-code/code-generator/src/generator/generators/typescript/templates/schema-template.mustache",
+			// "../"
+			"/home/prabh/Documents/ONDC/automation-validation-compiler/src/generator/generators/typescript/templates/schema-template.mustache",
+			// "../generator/generators/typescript/templates/schema-template.mustache",
+			// "/Users/rudranshsinghal/ondc/automation-utility/official-code/code-generator/src/generator/generators/typescript/templates/schema-template.mustache",
 			"utf-8"
 		);
 		console.log(actions);

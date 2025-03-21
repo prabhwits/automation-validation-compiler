@@ -13,21 +13,23 @@ export class SchemaExtactionService {
 		const apis = Object.keys(paths).map((key) => {
 			return key.split("/")[1];
 		});
+		console.log("apis", apis)
 		const output: any = { paths: {} };
 		for (const targetApi of apis) {
 			const existingSchema =
 				paths[`/${targetApi}`].post.requestBody.content["application/json"]
 					.schema;
-			output["response"] =
-				paths[`/${targetApi}`].post.responses.default.content[
-					"application/json"
-				].schema;
+			// output["response"] =
+			// 	paths[`/${targetApi}`].post.responses.default.content[
+			// 		"application/json"
+			// 	].schema;
 			const filtteredSchema = removeRequiredAndEnum(
 				existingSchema,
 				removeEnums,
 				removeRequired
 			);
 			output[targetApi] = filtteredSchema;
+			console.log(existingSchema, filtteredSchema, "''''")
 		}
 		return output as Record<string, JSONSchema7>;
 	};
