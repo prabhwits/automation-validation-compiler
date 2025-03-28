@@ -1,4 +1,5 @@
 export const status = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

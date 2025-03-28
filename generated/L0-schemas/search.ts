@@ -1,4 +1,5 @@
 export const search = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {
@@ -116,14 +117,17 @@ export const search = {
                             },
                         },
                         payment: {
-                            "@ondc/org/buyer_app_finder_fee_type": {
-                                type: "string",
-                                enum: ["Amount", "Percent"],
-                            },
-                            "@ondc/org/buyer_app_finder_fee_amount": {
-                                description: "Describes a decimal value",
-                                type: "string",
-                                pattern: "[+-]?([0-9]*[.])?[0-9]+",
+                            description: "Describes the payment",
+                            type: "object",
+                            properties: {
+                                "@ondc/org/buyer_app_finder_fee_type": {
+                                    type: "string",
+                                },
+                                "@ondc/org/buyer_app_finder_fee_amount": {
+                                    description: "Describes a decimal value",
+                                    type: "string",
+                                    pattern: "[+-]?([0-9]*[.])?[0-9]+",
+                                },
                             },
                         },
                         category: {

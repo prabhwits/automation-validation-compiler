@@ -1,4 +1,5 @@
 export const update = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

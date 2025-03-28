@@ -1,4 +1,5 @@
 export const track = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

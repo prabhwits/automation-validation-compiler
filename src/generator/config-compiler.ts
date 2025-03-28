@@ -77,7 +77,7 @@ export class ConfigCompiler {
 	};
 
 	generateCode = async (valConfig: ValidationConfig) => {
-		await this.performValidations(valConfig);
+		// await this.performValidations(valConfig);
 		// Generate code based on the language
 		switch (this.language) {
 			case SupportedLanguages.Typescript:

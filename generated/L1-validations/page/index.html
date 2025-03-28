@@ -13,72 +13,2522 @@
         <ul>
 <li><p><strong>search</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.intent.fulfillment.end.location.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_13</strong>: $.message.intent.fulfillment.end.location.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.intent.fulfillment.type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.intent.fulfillment.type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>select</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_15</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_16</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_18</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS</strong>: $.message.order.fulfillments[*].end.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.fulfillments[*].end.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENT</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENT.1</strong>: $.message.order.payment must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENT.2</strong>: every element of $.message.order.payment must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_22</strong>: $.message.order.offers[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.order.offers[*].tags.code must be in [&quot;Disc_Pct&quot;, &quot;Disc_Amt&quot;, &quot;BuyXGetY&quot;, &quot;Freebie&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.offers[*].tags.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENT</strong>: every element of $.message.order.payment must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>init</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_15</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_16</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_18</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING</strong>: $.message.order.billing.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY</strong>: $.message.order.billing.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE</strong>: $.message.order.billing.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY</strong>: $.message.order.billing.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.billing.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY</strong>: $.message.order.billing.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT</strong>: $.message.order.billing.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT</strong>: $.message.order.billing.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_30</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL</strong>: $.message.order.fulfillments[*].end.contact.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_32</strong>: $.message.order.fulfillments[*].end.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS</strong>: $.message.order.fulfillments[*].end.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING_34</strong>: $.message.order.fulfillments[*].end.location.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_35</strong>: $.message.order.fulfillments[*].end.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_36</strong>: $.message.order.fulfillments[*].end.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY_37</strong>: $.message.order.fulfillments[*].end.location.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_38</strong>: $.message.order.fulfillments[*].end.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_39</strong>: $.message.order.fulfillments[*].end.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>confirm</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
 </ul>
 </li>
-<li><p><strong>status</strong> : All the following sub conditions must pass as per the api requirement</p>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE</strong>: all of the following sub conditions must be met:</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATE.1</strong>: $.message.order.state must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATE.2</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.billing.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING</strong>: $.message.order.billing.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY</strong>: $.message.order.billing.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY</strong>: $.message.order.billing.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_20</strong>: $.message.order.billing.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY</strong>: $.message.order.billing.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.billing.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT</strong>: $.message.order.billing.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT</strong>: $.message.order.billing.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_27</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.maximum.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_30</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_31</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_URI</strong>: $.message.order.payment.uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TL_METHOD</strong>: $.message.order.payment.tl_method must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AMOUNT</strong>: $.message.order.payment.params.amount must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY</strong>: $.message.order.payment.params.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRANSACTION_ID</strong>: $.message.order.payment.params.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATUS</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.1</strong>: $.message.order.payment.status must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.2</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BENEFICIARY_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].beneficiary_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BANK_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].bank_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_bank_account_no must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_ifsc_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPI_ADDRESS</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].upi_address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_counterparty must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_PHASE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_phase must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BRANCH_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].branch_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.1</strong>: $.message.order.payment.type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.2</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COLLECTED_BY</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.1</strong>: $.message.order.payment.collected_by must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.2</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_amount&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS.1</strong>: $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must be in [&quot;shipment&quot;, &quot;delivery&quot;, &quot;return_window_expiry&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGSETTLEMENT_WINDOW</strong>: $.message.order.payment[&#39;@ondc/org/settlement_window&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGWITHHOLDING_AMOUNT</strong>: $.message.order.payment[&#39;@ondc/org/withholding_amount&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT_54</strong>: $.message.order.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT_55</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_56</strong>: $.message.order.billing.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_57</strong>: $.message.order.billing.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE_58</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_58.1</strong>: $.message.order.fulfillments[*].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_58.2</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_59</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_id&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT_62</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_quantity&#39;].count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_64</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_65</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_66</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_67</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT</strong>: every element of $.message.order.quote.breakup[*].item.quantity.available.count must be in [&quot;0&quot;, &quot;99&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.available.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT_5</strong>: every element of $.message.order.quote.breakup[*].item.quantity.maximum.count must be in [&quot;0&quot;, &quot;10&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT_5</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.maximum.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE_6</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE_6</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must be in [&quot;shipment&quot;, &quot;delivery&quot;, &quot;return_window_expiry&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATE</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.state must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>track</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ORDER_ID</strong>: $.message.order_id must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>cancel</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ORDER_ID</strong>: $.message.order_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CANCELLATION_REASON_ID</strong>: $.message.cancellation_reason_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SHORT_DESC</strong>: $.message.descriptor.short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>update</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATE_TARGET</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_UPDATE_TARGET.1</strong>: $.message.update_target must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_UPDATE_TARGET.2</strong>: every element of $.message.update_target must be in [&quot;payment&quot;, &quot;item&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_16</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.1</strong>: $.message.order.fulfillments[*].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.2</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Cancel&quot;, &quot;Delivery&quot;, &quot;Return&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE_18</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_18.1</strong>: $.message.order.fulfillments[*].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_18.2</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Cancel&quot;, &quot;Delivery&quot;, &quot;Return&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.fulfillments[*].tags.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE</strong>: $.message.order.fulfillments[*].tags.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE_21</strong>: $.message.order.fulfillments[*].tags.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE_22</strong>: $.message.order.fulfillments[*].tags.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_23</strong>: $.message.order.fulfillments[*].tags.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE_24</strong>: $.message.order.fulfillments[*].tags.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE_25</strong>: $.message.order.fulfillments[*].tags.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_26</strong>: $.message.order.fulfillments[*].tags.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE_27</strong>: $.message.order.fulfillments[*].tags.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_28</strong>: $.message.order.fulfillments[*].tags.name must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_UPDATE_TARGET</strong>: every element of $.message.update_target must be in [&quot;payment&quot;, &quot;item&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_UPDATE_TARGET</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.update_target must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS</strong>: every element of $.message.order.payment.status must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong>: every element of $.message.order.payment.collected_by must be in [&quot;percent&quot;, &quot;amount&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY_6</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY_6</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS_7</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS_7</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY_8</strong>: every element of $.message.order.payment.collected_by must be in [&quot;shipment&quot;, &quot;delivery&quot;, &quot;return_window_expiry&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY_8</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Cancel&quot;, &quot;Delivery&quot;, &quot;Return&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>on_search</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.intent[&#39;bpp/fulfillments&#39;][*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.1</strong>: $.message.intent[&#39;bpp/fulfillments&#39;][*].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.2</strong>: every element of $.message.intent[&#39;bpp/fulfillments&#39;][*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.intent[&#39;bpp/descriptor&#39;].name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SYMBOL</strong>: $.message.intent[&#39;bpp/descriptor&#39;].symbol must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SHORT_DESC</strong>: $.message.intent[&#39;bpp/descriptor&#39;].short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LONG_DESC</strong>: $.message.intent[&#39;bpp/descriptor&#39;].long_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_IMAGES</strong>: $.message.intent[&#39;bpp/descriptor&#39;].images[*] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_20</strong>: $.message.intent[&#39;bpp/providers&#39;][*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_21</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SYMBOL_22</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.symbol must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SHORT_DESC_23</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LONG_DESC_24</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.long_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_IMAGES_25</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].descriptor.images[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TTL</strong>: $.message.intent[&#39;bpp/providers&#39;][*].ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_27</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SYMBOL_28</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.symbol must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SHORT_DESC_29</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LONG_DESC_30</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.long_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_IMAGES_31</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].descriptor.images[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_MAXIMUM_VALUE</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].price.maximum_value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UNIT</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_UNIT.1</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.unitized.measure.unit must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_UNIT.2</strong>: every element of $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.unitized.measure.unit must be in [&quot;unit&quot;, &quot;gram&quot;, &quot;dozen&quot;, &quot;kilogram&quot;, &quot;tonne&quot;, &quot;litre&quot;, &quot;millilitre&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_36</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.unitized.measure.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.unitized.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT_38</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.available.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT_39</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.maximum.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT_40</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.maximum.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CATEGORY_ID</strong>: $.message.intent[&#39;bpp/providers&#39;][*].category_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMSONDCORGRETURNABLE</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>][&#39;@ondc/org/returnable&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_RATING</strong>: $.message.intent[&#39;bpp/providers&#39;][*].rating must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMSONDCORGCANCELLABLE</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>][&#39;@ondc/org/cancellable&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMSONDCORGAVAILABLE_ON_COD</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>][&#39;@ondc/org/available_on_cod&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP</strong>: $.message.intent[&#39;bpp/providers&#39;][*].time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_DURATION</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].replacement_terms[*].replace_within.duration must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMSONDCORGRETURN_WINDOW</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>][&#39;@ondc/org/return_window&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMSONDCORGSELLER_PICKUP_RETURN</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>][&#39;@ondc/org/seller_pickup_return&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMSONDCORGTIME_TO_SHIP</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>][&#39;@ondc/org/time_to_ship&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMSONDCORGCONTACT_DETAILS_CONSUMER_CARE</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>][&#39;@ondc/org/contact_details_consumer_care&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_RATING_52</strong>: $.message.intent[&#39;bpp/providers&#39;][*].rating must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE_53</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_53.1</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].fulfillments[</em>].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_53.2</strong>: every element of $.message.intent[&#39;bpp/providers&#39;][<em>].fulfillments[</em>].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LABEL</strong>: $.message.intent[&#39;bpp/providers&#39;][*].time.label must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP_55</strong>: $.message.intent[&#39;bpp/providers&#39;][*].time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_56</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].locations[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LABEL_57</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].locations[</em>].time.label must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP_58</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].locations[</em>].time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_START</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].locations[</em>].time.range.start must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_60</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].categories[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_61</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].categories[</em>].descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SHORT_DESC_62</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].categories[</em>].descriptor.short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LONG_DESC_63</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].categories[</em>].descriptor.long_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.intent[&#39;bpp/fulfillments&#39;][*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.intent[&#39;bpp/fulfillments&#39;][*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE_2</strong>: every element of $.message.intent[&#39;bpp/providers&#39;][<em>].fulfillments[</em>].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE_2</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].fulfillments[</em>].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_UNIT</strong>: every element of $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.unitized.measure.unit must be in [&quot;unit&quot;, &quot;gram&quot;, &quot;dozen&quot;, &quot;kilogram&quot;, &quot;tonne&quot;, &quot;litre&quot;, &quot;millilitre&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_UNIT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.intent[&#39;bpp/providers&#39;][<em>].items[</em>].quantity.unitized.measure.unit must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.intent[&#39;bpp/providers&#39;][*].descriptor.code must be in [&quot;Disc_Pct&quot;, &quot;Disc_Amt&quot;, &quot;BuyXGetY&quot;, &quot;Freebie&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.intent[&#39;bpp/providers&#39;][*].descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>on_select</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_14</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_15</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_17</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: $.message.order.fulfillments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGCATEGORY</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/category&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRACKING</strong>: $.message.order.fulfillments[*].tracking must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGCATEGORY_21</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/category&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/TAT&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_CODE.1</strong>: $.message.order.fulfillments[*].state.descriptor.code must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_CODE.2</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Serviceable&quot;, &quot;Non-Serviceable&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.1</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.2</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_28</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_29</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Serviceable&quot;, &quot;Non-Serviceable&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].state.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT</strong>: every element of $.message.order.quote.breakup[*].item.quantity.available.count must be in [&quot;0&quot;, &quot;99&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.available.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT_5</strong>: every element of $.message.order.quote.breakup[*].item.quantity.maximum.count must be in [&quot;0&quot;, &quot;10&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT_5</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.maximum.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>on_init</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_14</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_15</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING</strong>: $.message.order.billing.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY</strong>: $.message.order.billing.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE</strong>: $.message.order.billing.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY</strong>: $.message.order.billing.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.billing.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY</strong>: $.message.order.billing.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT</strong>: every element of $.message.order.quote.breakup[*].item.quantity.available.count must be in [&quot;0&quot;, &quot;99&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.available.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT_5</strong>: every element of $.message.order.quote.breakup[*].item.quantity.maximum.count must be in [&quot;0&quot;, &quot;10&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT_5</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.maximum.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code must be in [&quot;Pending&quot;, &quot;Packed&quot;, &quot;Pickup-approved&quot;, &quot;Pickup-rejected&quot;, &quot;Order-picked-up&quot;, &quot;Out-for-delivery&quot;, &quot;Order-delivered&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE_7</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE_7</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;, &quot;SOR&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>on_confirm</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATE.1</strong>: $.message.order.state must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATE.2</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_15</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_16</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_17</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.billing.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING</strong>: $.message.order.billing.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY</strong>: $.message.order.billing.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY</strong>: $.message.order.billing.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_24</strong>: $.message.order.billing.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY</strong>: $.message.order.billing.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.billing.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT</strong>: $.message.order.billing.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT</strong>: $.message.order.billing.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_31</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PROVIDER_ID</strong>: $.message.order.fulfillments[*].provider_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/provider_name&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_CODE.1</strong>: $.message.order.fulfillments[*].state.descriptor.code must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_CODE.2</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Pending&quot;, &quot;Packed&quot;, &quot;Pickup-approved&quot;, &quot;Pickup-rejected&quot;, &quot;Order-picked-up&quot;, &quot;Out-for-delivery&quot;, &quot;Order-delivered&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.1</strong>: $.message.order.fulfillments[*].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.2</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRACKING</strong>: $.message.order.fulfillments[*].tracking must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/TAT&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_38</strong>: $.message.order.fulfillments[*].start.location.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_39</strong>: $.message.order.fulfillments[*].start.location.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS</strong>: $.message.order.fulfillments[*].start.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS_41</strong>: $.message.order.fulfillments[*].end.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_42</strong>: $.message.order.fulfillments[*].end.location.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING_43</strong>: $.message.order.fulfillments[*].end.location.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_44</strong>: $.message.order.fulfillments[*].end.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_45</strong>: $.message.order.fulfillments[*].end.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_46</strong>: $.message.order.fulfillments[*].end.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY_47</strong>: $.message.order.fulfillments[*].end.location.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_48</strong>: $.message.order.fulfillments[*].end.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_49</strong>: $.message.order.fulfillments[*].end.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_50</strong>: $.message.order.fulfillments[*].end.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL_51</strong>: $.message.order.fulfillments[*].end.contact.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_id&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT_55</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_quantity&#39;].count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.1</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.2</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_58</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_59</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_60</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_61</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_URI</strong>: $.message.order.payment.uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TL_METHOD</strong>: $.message.order.payment.tl_method must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AMOUNT</strong>: $.message.order.payment.params.amount must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_66</strong>: $.message.order.payment.params.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATUS</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.1</strong>: $.message.order.payment.status must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.2</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE_68</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_68.1</strong>: $.message.order.payment.type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_68.2</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_bank_account_no must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_ifsc_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BENEFICIARY_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].beneficiary_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_counterparty must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_PHASE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_phase must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BANK_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].bank_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BRANCH_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].branch_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COLLECTED_BY</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.1</strong>: $.message.order.payment.collected_by must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.2</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_amount&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT_80</strong>: $.message.order.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT_81</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_82</strong>: $.message.order.offers[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Pending&quot;, &quot;Packed&quot;, &quot;Pickup-approved&quot;, &quot;Pickup-rejected&quot;, &quot;Order-picked-up&quot;, &quot;Out-for-delivery&quot;, &quot;Order-delivered&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].state.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT</strong>: every element of $.message.order.quote.breakup[*].item.quantity.available.count must be in [&quot;0&quot;, &quot;99&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.available.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT_6</strong>: every element of $.message.order.quote.breakup[*].item.quantity.maximum.count must be in [&quot;0&quot;, &quot;10&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT_6</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.maximum.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE_7</strong>: every element of $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code must be in [&quot;Pending&quot;, &quot;Packed&quot;, &quot;Pickup-approved&quot;, &quot;Pickup-rejected&quot;, &quot;Order-picked-up&quot;, &quot;Out-for-delivery&quot;, &quot;Order-delivered&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE_7</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE_8</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE_8</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must be in [&quot;shipment&quot;, &quot;delivery&quot;, &quot;return_window_expiry&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATE</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.state must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>on_track</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATUS</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.1</strong>: $.message.tracking.status must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.2</strong>: every element of $.message.tracking.status must be in [&quot;active&quot;, &quot;inactive&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.tracking.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS</strong>: $.message.tracking.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP</strong>: $.message.tracking.location.time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT</strong>: $.message.tracking.location.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_URL</strong>: $.message.tracking.url must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS</strong>: every element of $.message.tracking.status must be in [&quot;active&quot;, &quot;inactive&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.tracking.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>on_cancel</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATE.1</strong>: $.message.order.state must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATE.2</strong>: every element of $.message.order.state must be in [&quot;Cancelled&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_17</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_18</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.billing.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING</strong>: $.message.order.billing.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY</strong>: $.message.order.billing.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY</strong>: $.message.order.billing.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_23</strong>: $.message.order.billing.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY</strong>: $.message.order.billing.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.billing.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT</strong>: $.message.order.billing.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT</strong>: $.message.order.billing.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_30</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/provider_name&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/TAT&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_CODE.1</strong>: $.message.order.fulfillments[*].state.descriptor.code must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_CODE.2</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Cancelled&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.1</strong>: $.message.order.fulfillments[*].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.2</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRACKING</strong>: $.message.order.fulfillments[*].tracking must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_36</strong>: $.message.order.fulfillments[*].start.location.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_37</strong>: $.message.order.fulfillments[*].start.location.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS</strong>: $.message.order.fulfillments[*].start.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_39</strong>: $.message.order.fulfillments[*].start.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_40</strong>: $.message.order.fulfillments[*].start.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_41</strong>: $.message.order.fulfillments[*].start.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_42</strong>: $.message.order.fulfillments[*].start.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL_43</strong>: $.message.order.fulfillments[*].start.contact.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_44</strong>: $.message.order.fulfillments[*].start.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_45</strong>: $.message.order.fulfillments[*].end.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL_46</strong>: $.message.order.fulfillments[*].end.contact.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_47</strong>: $.message.order.fulfillments[*].end.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS_48</strong>: $.message.order.fulfillments[*].end.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_49</strong>: $.message.order.fulfillments[*].end.location.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING_50</strong>: $.message.order.fulfillments[*].end.location.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_51</strong>: $.message.order.fulfillments[*].end.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_52</strong>: $.message.order.fulfillments[*].end.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_53</strong>: $.message.order.fulfillments[*].end.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY_54</strong>: $.message.order.fulfillments[*].end.location.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_55</strong>: $.message.order.fulfillments[*].end.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_id&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT_59</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_quantity&#39;].count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.1</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.2</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_62</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_63</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_64</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_65</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_URI</strong>: $.message.order.payment.uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TL_METHOD</strong>: $.message.order.payment.tl_method must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AMOUNT</strong>: $.message.order.payment.params.amount must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_70</strong>: $.message.order.payment.params.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRANSACTION_ID</strong>: $.message.order.payment.params.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATUS</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.1</strong>: $.message.order.payment.status must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.2</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE_73</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_73.1</strong>: $.message.order.payment.type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_73.2</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COLLECTED_BY</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.1</strong>: $.message.order.payment.collected_by must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.2</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_amount&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_counterparty must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_PHASE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_phase must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPI_ADDRESS</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].upi_address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_bank_account_no must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_ifsc_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BENEFICIARY_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].beneficiary_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BANK_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].bank_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BRANCH_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].branch_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_86</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT_87</strong>: $.message.order.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT_88</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COLLECTED_BY_89</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY_89.1</strong>: $.message.order.payment.collected_by must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY_89.2</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_END</strong>: $.message.order.payment.time.range.end must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATE</strong>: every element of $.message.order.state must be in [&quot;Cancelled&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.state must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Delivery&quot;, &quot;Self-Pickup&quot;, &quot;Delivery and Self-Pickup&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Cancelled&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].state.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT</strong>: every element of $.message.order.quote.breakup[*].item.quantity.available.count must be in [&quot;0&quot;, &quot;99&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.available.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT_7</strong>: every element of $.message.order.quote.breakup[*].item.quantity.maximum.count must be in [&quot;0&quot;, &quot;10&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT_7</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.maximum.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE_8</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE_8</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must be in [&quot;shipment&quot;, &quot;delivery&quot;, &quot;return_window_expiry&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>on_update</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATE.1</strong>: $.message.order.state must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATE.2</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_15</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_16</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_17</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.1</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.2</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.billing.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY</strong>: $.message.order.billing.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_25</strong>: $.message.order.billing.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY</strong>: $.message.order.billing.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT</strong>: $.message.order.billing.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_30</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/provider_name&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_CODE.1</strong>: $.message.order.fulfillments[*].state.descriptor.code must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_CODE.2</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Accepted&quot;, &quot;Cancelled&quot;, &quot;Pending&quot;, &quot;Order-delivered&quot;, &quot;Return_Initiated&quot;, &quot;Return_Pick_Failed&quot;, &quot;Return_Approved&quot;, &quot;Return_Picked&quot;, &quot;Return_Delivered&quot;, &quot;Liquidated&quot;, &quot;Return_Rejected&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.1</strong>: $.message.order.fulfillments[*].type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE.2</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Cancel&quot;, &quot;Delivery&quot;, &quot;Return&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRACKING</strong>: $.message.order.fulfillments[*].tracking must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/TAT&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_36</strong>: $.message.order.fulfillments[*].start.location.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_37</strong>: $.message.order.fulfillments[*].start.location.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS</strong>: $.message.order.fulfillments[*].start.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY</strong>: $.message.order.fulfillments[*].start.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_40</strong>: $.message.order.fulfillments[*].start.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.fulfillments[*].start.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_42</strong>: $.message.order.fulfillments[*].start.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE_43</strong>: $.message.order.fulfillments[*].start.instructions.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_44</strong>: $.message.order.fulfillments[*].start.instructions.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SHORT_DESC</strong>: $.message.order.fulfillments[*].start.instructions.short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LONG_DESC</strong>: $.message.order.fulfillments[*].start.instructions.long_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_47</strong>: $.message.order.fulfillments[*].start.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL_48</strong>: $.message.order.fulfillments[*].start.contact.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_START</strong>: $.message.order.fulfillments[*].start.time.range.start must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_END</strong>: $.message.order.fulfillments[*].start.time.range.end must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP</strong>: $.message.order.fulfillments[*].start.time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS_52</strong>: $.message.order.fulfillments[*].end.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_53</strong>: $.message.order.fulfillments[*].end.location.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING</strong>: $.message.order.fulfillments[*].end.location.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_55</strong>: $.message.order.fulfillments[*].end.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_56</strong>: $.message.order.fulfillments[*].end.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_57</strong>: $.message.order.fulfillments[*].end.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY_58</strong>: $.message.order.fulfillments[*].end.location.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_59</strong>: $.message.order.fulfillments[*].end.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_60</strong>: $.message.order.fulfillments[*].end.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_61</strong>: $.message.order.fulfillments[*].end.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL_62</strong>: $.message.order.fulfillments[*].end.contact.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_START_63</strong>: $.message.order.fulfillments[*].end.time.range.start must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_END_64</strong>: $.message.order.fulfillments[*].end.time.range.end must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP_65</strong>: $.message.order.fulfillments[*].end.time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AMOUNT</strong>: $.message.order.payment.params.amount must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_67</strong>: $.message.order.payment.params.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRANSACTION_ID</strong>: $.message.order.payment.params.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATUS</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.1</strong>: $.message.order.payment.status must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.2</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE_70</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_70.1</strong>: $.message.order.payment.type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_70.2</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COLLECTED_BY</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.1</strong>: $.message.order.payment.collected_by must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.2</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_amount&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_counterparty must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_PHASE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_phase must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BENEFICIARY_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].beneficiary_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_bank_account_no must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_ifsc_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BANK_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].bank_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BRANCH_NAME</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].branch_name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT</strong>: $.message.order.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT_83</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Accepted&quot;, &quot;Cancelled&quot;, &quot;Pending&quot;, &quot;Order-delivered&quot;, &quot;Return_Initiated&quot;, &quot;Return_Pick_Failed&quot;, &quot;Return_Approved&quot;, &quot;Return_Picked&quot;, &quot;Return_Delivered&quot;, &quot;Liquidated&quot;, &quot;Return_Rejected&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].state.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.fulfillments[*].type must be in [&quot;Cancel&quot;, &quot;Delivery&quot;, &quot;Return&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE_4</strong>: every element of $.message.order.fulfillments[*].end.instructions.code must be in [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE_4</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].end.instructions.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT</strong>: every element of $.message.order.quote.breakup[*].item.quantity.available.count must be in [&quot;0&quot;, &quot;99&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.available.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT_7</strong>: every element of $.message.order.quote.breakup[*].item.quantity.maximum.count must be in [&quot;0&quot;, &quot;10&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT_7</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.maximum.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE_8</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE_8</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must be in [&quot;shipment&quot;, &quot;delivery&quot;, &quot;return_window_expiry&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATE</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.state must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 <li><p><strong>on_status</strong> : All the following sub conditions must pass as per the api requirement</p>
 <ul>
-<li><strong>condition validate_attribute_4</strong>: $.context.timestamp must be present in the payload</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.1</strong>: $.context.domain must be present in the payload</li>
+<li><strong>condition REQUIRED_CONTEXT_DOMAIN.2</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CORE_VERSION</strong>: $.context.core_version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATE.1</strong>: $.message.order.state must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATE.2</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_15</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_16</strong>: $.message.order.provider.locations[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_17</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT</strong>: $.message.order.items[*].quantity.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENT_ID</strong>: $.message.order.items[*].fulfillment_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME</strong>: $.message.order.billing.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING</strong>: $.message.order.billing.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY</strong>: $.message.order.billing.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY</strong>: $.message.order.billing.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_24</strong>: $.message.order.billing.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY</strong>: $.message.order.billing.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE</strong>: $.message.order.billing.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT</strong>: $.message.order.billing.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT</strong>: $.message.order.billing.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_30</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/provider_name&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CODE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_CODE.1</strong>: $.message.order.fulfillments[*].state.descriptor.code must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_CODE.2</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Pending&quot;, &quot;Packed&quot;, &quot;Pickup-approved&quot;, &quot;Pickup-rejected&quot;, &quot;Order-picked-up&quot;, &quot;Out-for-delivery&quot;, &quot;Order-delivered&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE</strong>: $.message.order.fulfillments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT</strong>: $.message.order.fulfillments[*][&#39;@ondc/org/TAT&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ID_35</strong>: $.message.order.fulfillments[*].start.location.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_36</strong>: $.message.order.fulfillments[*].start.location.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS</strong>: $.message.order.fulfillments[*].start.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_38</strong>: $.message.order.fulfillments[*].start.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_39</strong>: $.message.order.fulfillments[*].start.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_40</strong>: $.message.order.fulfillments[*].start.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_41</strong>: $.message.order.fulfillments[*].start.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_42</strong>: $.message.order.fulfillments[*].start.instructions.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SHORT_DESC</strong>: $.message.order.fulfillments[*].start.instructions.short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LONG_DESC</strong>: $.message.order.fulfillments[*].start.instructions.long_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_45</strong>: $.message.order.fulfillments[*].start.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_START</strong>: $.message.order.fulfillments[*].start.time.range.start must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_END</strong>: $.message.order.fulfillments[*].start.time.range.end must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP</strong>: $.message.order.fulfillments[*].start.time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_GPS_49</strong>: $.message.order.fulfillments[*].end.location.gps must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_50</strong>: $.message.order.fulfillments[*].end.location.address.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BUILDING_51</strong>: $.message.order.fulfillments[*].end.location.address.building must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_LOCALITY_52</strong>: $.message.order.fulfillments[*].end.location.address.locality must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CITY_53</strong>: $.message.order.fulfillments[*].end.location.address.city must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATE_54</strong>: $.message.order.fulfillments[*].end.location.address.state must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNTRY_55</strong>: $.message.order.fulfillments[*].end.location.address.country must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AREA_CODE_56</strong>: $.message.order.fulfillments[*].end.location.address.area_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_NAME_57</strong>: $.message.order.fulfillments[*].end.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_PHONE_58</strong>: $.message.order.fulfillments[*].end.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_EMAIL</strong>: $.message.order.fulfillments[*].end.contact.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_START_60</strong>: $.message.order.fulfillments[*].end.time.range.start must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_END_61</strong>: $.message.order.fulfillments[*].end.time.range.end must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TIMESTAMP_62</strong>: $.message.order.fulfillments[*].end.time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_id&#39;] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COUNT_66</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/item_quantity&#39;].count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.1</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE.2</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_69</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_VALUE_70</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_URI</strong>: $.message.order.payment.uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TL_METHOD</strong>: $.message.order.payment.tl_method must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_AMOUNT</strong>: $.message.order.payment.params.amount must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CURRENCY_74</strong>: $.message.order.payment.params.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TRANSACTION_ID</strong>: $.message.order.payment.params.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_STATUS</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.1</strong>: $.message.order.payment.status must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_STATUS.2</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_TYPE_77</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_77.1</strong>: $.message.order.payment.type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_TYPE_77.2</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_COLLECTED_BY</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.1</strong>: $.message.order.payment.collected_by must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_COLLECTED_BY.2</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_counterparty must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE</strong>: all of the following sub conditions must be met:</p>
+<ul>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.1</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be present in the payload</li>
+<li><strong>condition REQUIRED_MESSAGE_SETTLEMENT_TYPE.2</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_bank_account_no must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_ifsc_code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_CREATED_AT_83</strong>: $.message.order.created_at must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_UPDATED_AT_84</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:RET10&quot;, &quot;ONDC:RET11&quot;, &quot;ONDC:RET12&quot;, &quot;ONDC:RET13&quot;, &quot;ONDC:RET14&quot;, &quot;ONDC:RET15&quot;, &quot;ONDC:RET16&quot;, &quot;ONDC:RET17&quot;, &quot;ONDC:RET18&quot;, &quot;ONDC:RET19&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_CONTEXT_DOMAIN</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.context.domain must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE</strong>: every element of $.message.order.fulfillments[*].state.descriptor.code must be in [&quot;Pending&quot;, &quot;Packed&quot;, &quot;Pickup-approved&quot;, &quot;Pickup-rejected&quot;, &quot;Order-picked-up&quot;, &quot;Out-for-delivery&quot;, &quot;Order-delivered&quot;, &quot;RTO-Initiated&quot;, &quot;RTO-Delivered&quot;, &quot;RTO-Disposed&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].state.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_CODE_3</strong>: every element of $.message.order.fulfillments[*].end.instructions.code must be in [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_CODE_3</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[*].end.instructions.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong>: every element of $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must be in [&quot;item&quot;, &quot;delivery&quot;, &quot;packing&quot;, &quot;tax&quot;, &quot;misc&quot;, &quot;discount&quot;, &quot;discount_f&quot;, &quot;tax_f&quot;, &quot;0&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*][&#39;@ondc/org/title_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT</strong>: every element of $.message.order.quote.breakup[*].item.quantity.available.count must be in [&quot;0&quot;, &quot;99&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.available.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COUNT_6</strong>: every element of $.message.order.quote.breakup[*].item.quantity.maximum.count must be in [&quot;0&quot;, &quot;10&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COUNT_6</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.quote.breakup[*].item.quantity.maximum.count must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_TYPE</strong>: every element of $.message.order.payment.type must be in [&quot;ON-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must be in [&quot;upi&quot;, &quot;neft&quot;, &quot;rtgs&quot;, &quot;wallet&quot;, &quot;netbanking&quot;, &quot;paylater&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_SETTLEMENT_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_details&#39;][*].settlement_type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong>: every element of $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must be in [&quot;percent&quot;, &quot;amount&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/buyer_app_finder_fee_type&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong>: every element of $.message.order.payment.collected_by must be in [&quot;BAP&quot;, &quot;BPP&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_COLLECTED_BY</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.collected_by must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATUS</strong>: every element of $.message.order.payment.status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATUS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment.status must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong>: every element of $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must be in [&quot;shipment&quot;, &quot;delivery&quot;, &quot;return_window_expiry&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.payment[&#39;@ondc/org/settlement_basis&#39;] must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_ENUM_MESSAGE_STATE</strong>: every element of $.message.order.state must be in [&quot;Created&quot;, &quot;Accepted&quot;, &quot;In-progress&quot;, &quot;Completed&quot;, &quot;Cancelled&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_ENUM_MESSAGE_STATE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.state must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </li>
 </ul>

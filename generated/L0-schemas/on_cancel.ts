@@ -1,4 +1,5 @@
 export const on_cancel = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

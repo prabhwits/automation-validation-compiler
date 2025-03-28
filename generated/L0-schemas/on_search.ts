@@ -1,4 +1,5 @@
 export const on_search = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

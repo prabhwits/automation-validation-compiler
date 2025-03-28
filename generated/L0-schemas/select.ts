@@ -1,4 +1,5 @@
 export const select = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

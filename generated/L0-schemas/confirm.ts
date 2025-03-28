@@ -1,4 +1,5 @@
 export const confirm = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

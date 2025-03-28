@@ -1,4 +1,5 @@
 export const on_confirm = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

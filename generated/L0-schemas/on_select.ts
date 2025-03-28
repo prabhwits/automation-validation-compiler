@@ -1,4 +1,5 @@
 export const on_select = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

@@ -1,4 +1,5 @@
 export const on_init = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {

@@ -1,4 +1,5 @@
 export const cancel = {
+    additionalProperties: false,
     type: "object",
     properties: {
         context: {
